@@ -325,7 +325,7 @@ switch (ENVIRONMENT)
 			return "https://admin.5score24.com/";
 		}
 		else {
-			return "http://localhost/admin/";
+			return "http://localhost/lucky7_backend/";
 		}
 	}
 	
