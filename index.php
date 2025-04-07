@@ -318,15 +318,21 @@ switch (ENVIRONMENT)
 
 	define('VIEWPATH', $view_folder.DIRECTORY_SEPARATOR);
 
- 
+	$ADMIN_URL = null;
+
 	function get_admin_url(){
-		
-		if( $_SERVER['SERVER_NAME']=='5score24.com' ) {
-			return "https://admin.5score24.com/";
+
+		global $ADMIN_URL;
+
+		if($ADMIN_URL !== null){
+			return $ADMIN_URL;
 		}
-		else {
-			return "http://localhost/lucky7_backend/";
-		}
+
+		$CI = get_instance();
+		$CI->config->load('config');
+		$ADMIN_URL = $CI->config->item('admin_url');
+		return $ADMIN_URL;
+
 	}
 	
 	//die($_SERVER['SERVER_NAME']);
