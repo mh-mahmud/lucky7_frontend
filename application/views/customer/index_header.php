@@ -7,13 +7,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 
-	<meta name="title" content="5score24">
-	<meta name="author" content="KalMegha">
-	<meta name="description" content="International Betting Site, Best Betting Site in Maldives. Join our platform and make some profit.">
+	<meta name="title" content="Lucky7 UK">
+	<meta name="author" content="John Anderson">
+	<meta name="description" content="International Betting Site, Best Betting Site in UK & US. Join our platform and make some profit.">
 	<meta name="keywords"
-		  content="betting, live bet, live betting, online betting, bet online, mobile bet, sport bet, cricket bet, football bet, bet365, betasia365, betwin69, best bettings site in Maldives, bet site Maldives">
+		  content="betting, live bet, live betting, online betting, bet online, mobile bet, sport bet, cricket bet, football bet, bet365, betasia365, betwin69, best bettings site in UK & US, bet site UK, US">
 
-	<title>5score24</title>
+	<title>Lucky7 UK</title>
 	<link rel="shortcut icon" type="ico" href="<?php echo base_url("assets/img/")?>logo-new.png"/>
 	
 	<!-- Local Link -->
