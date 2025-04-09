@@ -51,7 +51,7 @@
 			<div class="col-sm-3 col-md-3 col-lg-3">
 				<div class="copyright_info">
 					<img src="<?php base_url(); ?>assets/img/logo-new.png" alt="" title="Bet score 24" width='80' class="">
-					<p>Copyright &copy;2023, All rights reserved. </p>
+					<p>Copyright &copy;2025, All rights reserved. </p>
 					<p><b style="color:red">Caution!</b> We are strongly discourage to use this site who are not 18+ and also site administrator is not liable to any kind of issues created by user.</p>
 				</div>
 			</div>
@@ -138,7 +138,7 @@
 
 		<div class="disclimar_block">
 			<p>
-				Copyright &copy;2023 «5score24» All rights reserved and protected by law. 5score24.com is owned by Rakuten Ltd (reg.number US0009)
+				Copyright &copy;2025 Lucky7UK All rights reserved and protected by law. lucky7uk.com is owned by bwin Ltd (reg.number UK:ISO9001-0009)
 			</p>
 		</div>
 	</div>
@@ -158,7 +158,7 @@
 <script src="<?php echo base_url(); ?>assets/js/owl.carousel.min.js?ver=<?php echo md5(rand(111,999))?>"></script>
 <script src="<?php echo base_url(); ?>assets/js/jquery.validate.js?ver=<?php echo md5(rand(111,999))?>"></script>
 
-<?php if( $_SERVER['SERVER_NAME']=='5score24.com' ) { ?>
+<?php if( $_SERVER['SERVER_NAME']=='lucky7.com' ) { ?>
 	<script src="<?php echo base_url(); ?>assets/js/v.option.meterial2.js?ver=<?php echo md5(rand(111,999))?>"></script>
 <?php } else { ?>
 	<script src="<?php echo base_url(); ?>assets/js/v.option.meterial.js?ver=<?php echo md5(rand(111,999))?>"></script>
