@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta name="title" content="5Score24">
-    <meta name="author" content="Kalmegha">
-    <meta name="description" content="Betting Site, Best Betting Site in Maldives. Join our platform and make some profit.">
+    <meta name="title" content="Lucky7 UK">
+    <meta name="author" content="John Anderson">
+    <meta name="description" content="Betting Site, Best Betting Site in UK. Join our platform and make some profit.">
     <meta name="keywords"
           content="betting, live bet, live betting, online betting, bet online, mobile bet, sport bet, cricket bet, football bet">
 
-    <title>5score24 | Online Betting Platform</title>
+    <title>Lucky7 UK | Interntional Betting Platform</title>
 
     <link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"/>
