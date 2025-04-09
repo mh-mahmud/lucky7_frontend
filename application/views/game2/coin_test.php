@@ -55,7 +55,7 @@
 
     <div style="padding: 5px 10px;background: #0a7b7b;">
       <button class="btn d3" id="btn-head" style="width: 49%;"><div class="d31">HEAD</div></button>
-      <button class="btn d3" id="btn-till" style="width: 49%;"><div class="d31">TILL</div></button>
+      <button class="btn d3" id="btn-till" style="width: 49%;"><div class="d31">TAIL</div></button>
     </div>
     <div style="width:100%;float:left;">
       <div style="width:40%;float:left;">
@@ -113,7 +113,7 @@
       var coin_amount=$('#coin_amount').val();
       if(coin_stake=="" )
       {
-        alert('choose your point ( Head or Till )');
+        alert('choose your point ( Head or Tail )');
         run=0;
       }
       else

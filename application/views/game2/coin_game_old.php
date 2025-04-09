@@ -51,7 +51,7 @@
 
     <div style="padding: 5px 10px;background: linear-gradient(#e080ff,#40E0D0,#6495ED,#CCF,#eE3163) !important;border-radius: 5px;">
       <button class="btn d3" id="btn-head" style="width: 49%;background: linear-gradient(#000650,#000650,#5A5D84,#000650,#000650) !important;"><div class="d31">HEAD</div></button>
-      <button class="btn d3" id="btn-till" style="width: 49%;background: linear-gradient(#000650,#000650,#5A5D84,#000650,#000650) !important;"><div class="d31">TILL</div></button>
+      <button class="btn d3" id="btn-till" style="width: 49%;background: linear-gradient(#000650,#000650,#5A5D84,#000650,#000650) !important;"><div class="d31">TAIL</div></button>
     </div>
     <div style="width:100%;float:left;">
       <div style="width:40%;float:left;">
@@ -763,7 +763,7 @@
           var coin_amount=$('#coin_amount').val();
           if(coin_stake=="" )
           {
-            alert('choose your point ( Head or Till )');
+            alert('choose your point ( Head or Tail )');
             run=0;
           }
           else
