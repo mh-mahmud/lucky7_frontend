@@ -145,6 +145,9 @@
 
 
 <!-- Local scripts -->
+<script>
+	const base_url = '<?php echo base_url()?>';
+</script>
 <script src="<?php echo base_url(); ?>assets/js/jquery.min.js?ver=<?php echo md5(rand(111,999))?>"></script>
 <script src="<?php echo base_url(); ?>assets/js/popper.min.js?ver=<?php echo md5(rand(111,999))?>"></script>
 <script src="<?php echo base_url(); ?>assets/js/materialView.js?ver=<?php echo md5(rand(111,999))?>"></script>
@@ -154,11 +157,7 @@
 <script src="<?php echo base_url(); ?>assets/js/owl.carousel.min.js?ver=<?php echo md5(rand(111,999))?>"></script>
 <script src="<?php echo base_url(); ?>assets/js/jquery.validate.js?ver=<?php echo md5(rand(111,999))?>"></script>
 
-<?php if( $_SERVER['SERVER_NAME']=='allscore24.com' ) { ?>
-	<script src="<?php echo base_url(); ?>assets/js/v.option.meterial2.js?ver=<?php echo md5(rand(111,999))?>"></script>
-<?php } else { ?>
-	<script src="<?php echo base_url(); ?>assets/js/v.option.meterial.js?ver=<?php echo md5(rand(111,999))?>"></script>
-<?php } ?>
+<script src="<?php echo base_url(); ?>assets/js/v.option.meterial.js?ver=<?php echo md5(rand(111,999))?>"></script>
 
 <script src="<?php echo base_url(); ?>assets/js/owl.slider.js?ver=<?php echo md5(rand(111,999))?>"></script>
  

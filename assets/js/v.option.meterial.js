@@ -1,6 +1,3 @@
-// var base_url = "https://44.24-444.com/";
-var base_url = "http://localhost/lucky7_frontend/";
-
 function betscore24() {
     // $("#lodingPage").show();
     $("#liveGif").show();

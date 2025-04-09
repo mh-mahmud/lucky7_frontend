@@ -6,11 +6,6 @@
 header('Access-Control-Allow-Origin: *');
 date_default_timezone_set('Asia/Dhaka');
 
-if( $_SERVER['SERVER_NAME']=='allscore24.com' ) {
-    header("Location: https://aws.amazon.com/");
-	die("server blocked");
-}
-
 
 /**
  * CodeIgniter
