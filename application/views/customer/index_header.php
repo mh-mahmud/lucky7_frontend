@@ -440,7 +440,7 @@
 			<div class="row align-items-center justify-content-between" style="flex-wrap: nowrap!important;">
 				<div class="col-sm-2">
 					<div class="logo"><a href="<?php echo base_url(); ?>">
-						<img alt="5Score24" src="<?php echo base_url(); ?>assets/img/logo-new.png"></a>
+						<img alt="lucky7" src="<?php echo base_url(); ?>assets/img/logo-new.png"></a>
 					</div>
 				</div>
 				<?php include(APPPATH . "views/header_auth.php"); ?>

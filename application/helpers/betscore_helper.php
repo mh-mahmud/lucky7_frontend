@@ -178,7 +178,7 @@ if (!function_exists('sent_otp_code_sms_api')) {
 	{ 
 		$apiUrl ="https://app.usasms.net/sms_api_bs";
 	 
-		$msg = "<#> Use " . $token . " as ONE TIME KEY to complete Betscore24 Operation";
+		$msg = "<#> Use " . $token . " as ONE TIME KEY to complete lucky7uk Operation";
 		$key = "294809b10ed4ca82d5c9215b02210cb2";
  
 		$curl_handle = curl_init();
@@ -219,9 +219,9 @@ if (!function_exists('sent_otp_code_email')) {
         $ci->load->library('email'); 
    		$ci->email->set_newline("\r\n");
   
-        $ci->email->from('no-reply@betscore24.com', 'BETSCORE24 OTP'); 
+        $ci->email->from('no-reply@lucky7uk.com', 'lucky7uk OTP'); 
         $ci->email->to($em);
-        $ci->email->subject('OTP SEND FROM BETSCORE24'); 
+        $ci->email->subject('OTP SEND FROM lucky7uk'); 
         $ci->email->message('Please verify your mail by otp code. Your OTP code is: '.$token); 
         if ($ci->email->send()) {
          	return "success";

@@ -657,7 +657,7 @@
 
 													</div>
 													<div class="rs-other-info termes-policy">
-                                <span class="text-center"> By clicking "Register" I agree to Betscore24
+                                <span class="text-center"> By clicking "Register" I agree to lucky7uk
                                     <a href="">Terms of Service</a>. and <a href="">Privacy Policy</a>.
                                 </span>
 													</div>

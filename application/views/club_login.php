@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>5Score24.com Club Panel</title>
+	<title>lucky7.com Club Panel</title>
 	<link rel="shortcut icon" type="ico" href="<?php echo base_url("assets/img/")?>favicon.ico.ico"/>
 	<style>
 		*{

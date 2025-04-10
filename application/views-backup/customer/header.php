@@ -10,7 +10,7 @@
     <meta name="keywords"
           content="betting, live bet, live betting, online betting, bet online, mobile bet, sport bet, cricket bet, football bet">
 
-    <title>Betscore24 | Online Betting Platform</title>
+    <title>lucky7uk | Online Betting Platform</title>
 
     <link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"/>
@@ -38,7 +38,7 @@
 			<div class="container-fluid header-bottom-area">
 				<div class="row align-items-center justify-content-between">
 					<div class="col-sm-2">
-						<div class="logo"><a href="<?php echo base_url(); ?>"><img alt="BetScore24" src="<?php echo base_url(); ?>assets/img/logo.png"></a>
+						<div class="logo"><a href="<?php echo base_url(); ?>"><img alt="lucky7uk" src="<?php echo base_url(); ?>assets/img/logo.png"></a>
 						</div>
 					</div>
 					<!--here is header auth-->

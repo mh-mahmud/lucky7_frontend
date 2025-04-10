@@ -163,7 +163,7 @@
  
 <?php include(APPPATH . "views/multibet/multibet_app_js.php"); ?>
 <!-- End --> 
-<!--<script type="text/javascript" src="//support.betscore24.com/php/app.php?widget-init.js"></script>-->
+<!--<script type="text/javascript" src="//support.lucky7uk.com/php/app.php?widget-init.js"></script>-->
 </body>
 </html>
  

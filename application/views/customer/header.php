@@ -39,7 +39,7 @@
 			<div class="container-fluid header-bottom-area">
 				<div class="row align-items-center justify-content-between">
 					<div class="col-sm-2">
-						<div class="logo"><a href="<?php echo base_url(); ?>"><img alt="BetScore24" src="<?php echo base_url(); ?>assets/img/logo.png"></a>
+						<div class="logo"><a href="<?php echo base_url(); ?>"><img alt="lucky7uk" src="<?php echo base_url(); ?>assets/img/logo.png"></a>
 						</div>
 					</div>
 					<!--here is header auth-->

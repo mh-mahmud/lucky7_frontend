@@ -96,7 +96,7 @@
 								<button type="submit" class="btnr" id="registerBtn">Register</button>
 
 								<div class="rs-other-info termes-policy"><span
-										class="text-center"> I accept Betscore24 <a
+										class="text-center"> I accept lucky7uk <a
 											href="">Terms of Service</a>. and <a
 											href="">Security Standards & Policies</a>. </span>
 								</div>

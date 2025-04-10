@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>5score24</title>
+	<title>lucky7</title>
 	<style type="text/css">
 		
 		@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
@@ -259,7 +259,7 @@
 	<link href="<?php echo base_url(); ?>assets/react_css_js/sweetalert.css?ver=<?php echo md5(rand(111,999))?>" rel="stylesheet">
 </head>
 	<body>
-		<h2>::5score24:: <?php echo $d; ?></h2>
+		<h2>::lucky7:: <?php echo $d; ?></h2>
 		<div class="container" id="container">
 
 			<div class="form-container sign-up-container">

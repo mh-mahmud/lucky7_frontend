@@ -156,7 +156,7 @@
 <script src="<?php echo base_url(); ?>assets/js/view.option.meterial.js"></script>
 <script src="<?php echo base_url(); ?>assets/js/owl.slider.js"></script>
 
-<!-- <script type="text/javascript" src="//support.betscore24.com/livechat/php/app.php?widget-init.js"></script> -->
+<!-- <script type="text/javascript" src="//support.lucky7uk.com/livechat/php/app.php?widget-init.js"></script> -->
 <!-- End -->
 
  

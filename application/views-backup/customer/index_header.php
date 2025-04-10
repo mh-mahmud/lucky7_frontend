@@ -13,7 +13,7 @@
 	<meta name="keywords"
 		  content="betting, live bet, live betting, online betting, bet online, mobile bet, sport bet, cricket bet, football bet, bet365, betasia365, betwin69, best bettings site in bangladesh, bet site bangladesh">
 
-	<title>Betscore24</title>
+	<title>lucky7uk</title>
 	<link rel="shortcut icon" type="ico" href="<?php echo base_url("assets/img/")?>favicon.ico.ico"/>
 	
 	<!-- Local Link -->
@@ -440,7 +440,7 @@
 			<div class="row align-items-center justify-content-between" style="flex-wrap: nowrap!important;">
 				<div class="col-sm-2">
 					<div class="logo"><a href="<?php echo base_url(); ?>">
-						<img alt="BetScore24" src="<?php echo base_url(); ?>assets/img/logo.png"></a>
+						<img alt="lucky7uk" src="<?php echo base_url(); ?>assets/img/logo.png"></a>
 					</div>
 				</div>
 				<?php include(APPPATH . "views/header_auth.php"); ?>
