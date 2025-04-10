@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 
-	<meta name="title" content="Betscore 24">
+	<meta name="title" content="Lucky7 UK">
 	<meta name="author" content="Engineer Zahidul Haque UK">
 	<meta name="description" content="International Betting Site, Best Betting Site in Asia. Join our platform and make some profit.">
 	<meta name="keywords"

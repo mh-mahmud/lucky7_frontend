@@ -34,7 +34,7 @@
 					<div class="row">
 						<div class="col-md-10">
 							<p style="color: darkgray;text-align: justify;position: absolute; top: 10px;">
-								Copyright © 2016-2021 <b>Betscore 24</b>.	All rights reserved and protected by law. betscore.com is owned by Toto Ltd
+								Copyright © 2016-2021 <b>Lucky7 UK</b>.	All rights reserved and protected by law. betscore.com is owned by Toto Ltd
 								(reg.number USW37U99).
 							</p>
 						</div>

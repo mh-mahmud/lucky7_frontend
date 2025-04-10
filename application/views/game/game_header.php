@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 
-	<meta name="title" content="Betscore 24">
+	<meta name="title" content="Lucky7 UK">
 	<meta name="description" content="International Betting Site, Best Betting Site in Asia. Join our platform and make some profit.">
 	<meta name="keywords"
 		  content="betting, live bet, live betting, online betting, bet online, mobile bet, sport bet, cricket bet, football bet, bet365, betasia365, betwin69, best bettings site in bangladesh, bet site bangladesh">
