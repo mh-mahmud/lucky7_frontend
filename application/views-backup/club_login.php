@@ -83,7 +83,7 @@
 
 		<div class="form-header">
 			<img src="<?= base_url("assets/img/logo.png")?>" width="80" alt="">
-			<h3>Login To Bet score Club</h3>
+			<h3>Login To Lucky7 Uk Club</h3>
 			<p>Login to access your club dashboard</p>
 		</div>
 		<!--Email Input-->

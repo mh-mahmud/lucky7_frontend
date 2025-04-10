@@ -83,7 +83,7 @@
 
 		<div class="form-header">
 			<img src="<?= base_url("assets/img/logo.png")?>" width="80" alt="">
-			<h3>Login To Bet score Emergency Access</h3>
+			<h3>Login To Lucky7 Uk Emergency Access</h3>
 			<p>Login to access user dashboard</p>
 		</div>
 		<!--Email Input-->

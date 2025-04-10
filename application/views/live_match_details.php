@@ -192,7 +192,7 @@ ORDER BY option_serial ASC")->result();
         <div class="modal-content">
             <!--common block-->
             <div class="common_block_panel betting_slip_block">
-                <h2>Bet Score24</h2>
+                <h2>Lucky7 Uk24</h2>
                 <div class="pallate_container bet_slip_container">
 
                     <!--bet slip 01-->

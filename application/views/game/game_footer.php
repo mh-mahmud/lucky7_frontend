@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="col-sm-3 col-md-3 col-lg-3">
 				<div class="copyright_info">
-					<img src="<?php base_url(); ?>assets/img/logo.png" alt="" title="Bet score 24" width='80' class="">
+					<img src="<?php base_url(); ?>assets/img/logo.png" alt="" title="Lucky7 Uk 24" width='80' class="">
 					<p>Copyright © 2017, All rights reserved. </p>
 					<p><b>Caution!</b> We are strongly discourage to use this site who are not 18+ and also site administrator is not liable to any kind of issues created by user.</p>
 				</div>
