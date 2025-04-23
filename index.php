@@ -325,11 +325,17 @@ switch (ENVIRONMENT)
 			return "https://admin.5score24.com/";
 		}
 		else {
-			return "http://localhost/lucky7_backend/";
+			return "http://localhost:8080/lucky7_backend/";
 		}
 	}
 	
 	//die($_SERVER['SERVER_NAME']);
+
+	function dd($data) {
+		echo "<pre>";
+		print_r($data);
+		exit();
+	}
 
  
 /*

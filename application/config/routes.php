@@ -93,6 +93,8 @@ $route['club_login_by_admin/:any'] = "Betscore/club_login_by_admin";
 $route['ludu'] = "Betscore/ludu_game";
 $route['coin'] = "Betscore/coin_game";
 $route['dice'] = "Betscore/dice_game";
+$route['slotmachine-game'] = "Betscore/slot_game";
+
 $route['action_coin'] = "Betscore/action_coin";
 $route['action_ludu'] = "Betscore/action_ludu";
 $route['action_dice'] = "Betscore/action_dice";

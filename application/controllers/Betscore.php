@@ -1780,5 +1780,14 @@ class Betscore extends CI_Controller
 		}
 	}
 
+	// -- slot game
+	public function slot_game() {
+		$data = [];
+		$data['stake'] = $this->db->query("SELECT dice_game_ratio, dice_game_rate FROM settings where id=1")->row()->dice_game_rate;
+		//dd(FCPATH);
+		$this->load->view('game2/slotmachine/index', $data);
+		//$this->load->view(FCPATH . 'custom_view', $data);
+	}
+
 	
 }
