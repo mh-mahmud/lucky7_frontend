@@ -31,10 +31,10 @@
   }
 #coin {
 	position: relative;
-	margin: 0 auto;
-	width: 250px;
-	height: 250px;
-	cursor: pointer;
+    margin: 0px auto 20px auto;
+    width: 250px;
+    height: 250px;
+    cursor: pointer;
 }
   #coin div {
     width: 100%;
@@ -265,10 +265,10 @@
 }
 .btn-top p span {
 	float: right;
-	color: #f0601a;
-	background: #534e4e;
-	border-radius: 6px;
-	padding: 0px 10px;
+    color: #ffffff;
+    background: #c30707;
+    border-radius: 6px;
+    padding: 0px 19px;
 }
 .posiblewin {
 	width: 100%;
@@ -293,8 +293,10 @@
 }
 .play-btn img {
 	width: 50%;
-	margin: 5px 0;
-	cursor: pointer;
+    margin: 30px 0;
+    cursor: pointer;
+    box-shadow: 0px 0px 18px 9px #ffffff;
+    border-radius: 80px;
 }
 .bg {
 	float: right;

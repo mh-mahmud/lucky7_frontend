@@ -53,7 +53,7 @@
       <button class="btn d3" id="btn-head" style="width: 49%;background: linear-gradient(#000650,#000650,#5A5D84,#000650,#000650) !important;"><div class="d31">HEAD</div></button>
       <button class="btn d3" id="btn-till" style="width: 49%;background: linear-gradient(#000650,#000650,#5A5D84,#000650,#000650) !important;"><div class="d31">TAIL</div></button>
     </div>
-    <div style="width:100%;float:left;">
+    <div style="width:100%;float:left;margin-top: 10px;">
       <div style="width:40%;float:left;">
         <input type="number" class="form-control form-custom" name="coin_amount" id="coin_amount" placeholder=" Enter Amount">
       </div>

@@ -13,7 +13,7 @@
  
  <style>
    .topDiv {
-    /*background-image: url("assets/game2/images/Live_Casino.jpg");*/
+    background-image: url("assets/game2/images/Live_Casino.jpg");
     background-color: #64cdcb;
    }
   .resultwin2 {
@@ -62,12 +62,12 @@
       <p>Select a Dice please <span>Rate: <?php echo $stake; ?></span></p>
     </div>
 
-    <div style="padding: 5px 10px;background: #0a7b7b;">
+    <div style="padding: 5px 10px;background: #0a7b7b;margin-top: 10px;">
       <button class="btn d3" id="btn-head" style="width: 49%;"><div class="d31">RED</div></button>
       <button class="btn d3" id="btn-till" style="width: 49%;"><div class="d31">WHITE</div></button>
       <input type="hidden" id="headTileStatus">
     </div>
-    <div style="width:100%;float:left;">
+    <div style="width:100%;float:left;margin-top: 10px;">
       <div style="width:40%;float:left;">
         <input type="number" class="form-control form-custom" name="coin_amount" id="coin_amount" placeholder=" Enter Amount">
       </div>
