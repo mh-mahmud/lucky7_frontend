@@ -14,7 +14,7 @@
  <style>
    .topDiv {
     /*background-image: url("assets/game2/images/Live_Casino.jpg");*/
-    background-color: #7b2d73;
+    background-color: #64cdcb;
    }
   .resultwin2 {
       position: absolute;

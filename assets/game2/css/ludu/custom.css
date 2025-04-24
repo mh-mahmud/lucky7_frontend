@@ -273,13 +273,13 @@
 .posiblewin {
 	width: 100%;
 	height: 34px;
-	background: #1f88a8;
+	background: #65c9c7c7;
 	overflow: hidden;
 	padding: 5px 5px;
 	border: 1px solid #666;
 }
 .form-custom {
-	background: #283f6c;
+	background: #defffe;
 	border: 1px solid #666;
 	border-radius: 0;
 	color: #d7d1d1;
