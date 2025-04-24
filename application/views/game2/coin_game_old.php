@@ -21,9 +21,11 @@
 <body cz-shortcut-listen="true">
  <header>
   <nav class="navbar navbar-default heading-color" style="background: linear-gradient(#000650,#000650,#5A5D84,#000650,#000650) !important; margin: 0;">
-
     <div class="navbar-header ">
-      <a href="home.php" class="btn btn-primary back-btn">Back</a>
+      <a href="https://dev.lucky7uk.com/" class="btn btn-primary back-btn">
+        <img src="<?php echo base_url(); ?>/assets/img/back.png" alt="Back" style="height: 20px; margin-right: 5px;">
+        Back
+      </a>
 
       <div style="float:left;width:200px;">
         <a class="" href="">
