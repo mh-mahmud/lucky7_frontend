@@ -28,7 +28,7 @@
 <div style="margin:0 auto;min-height: 700px;background: #252f5a; overflow: hidden;">
   <div id="coin">
     <div class="side-a tail">
-      <img style="width: 100%;height: 100%;" src="<?php echo base_url('assets/game2'); ?>/images/ludu.png">
+      <img style="width: 100%;height: 100%;border-radius: 30px;" src="<?php echo base_url('assets/game2'); ?>/images/ludu.png">
     </div>
   </div>
   <div id="error">

@@ -31,7 +31,7 @@
 <div style="margin:0 auto;min-height: 700px;background: #7b2d73; overflow: hidden;">
   <div id="coin">
     <div class="side-a tail">
-      <img style="width: 100%;height: 100%;" src="<?php echo base_url('assets/game2'); ?>/images/lududice.PNG">
+      <img style="width: 100%;height: 100%;border-radius: 30px;" src="<?php echo base_url('assets/game2'); ?>/images/lududice.PNG">
     </div>
   </div>
   <h2 style="text-align:center; color:white;">You VS Computer</h2>

@@ -47,7 +47,7 @@
     <br>
   <div id="coin">
     <div class="side-a tail">
-      <img style="width: 100%;height: 100%;" src="<?php echo base_url('assets/game2'); ?>/images/lududice.png">
+      <img style="width: 100%;height: 100%;border-radius: 30px;" src="<?php echo base_url('assets/game2'); ?>/images/lududice.png">
     </div>
   </div>
 
