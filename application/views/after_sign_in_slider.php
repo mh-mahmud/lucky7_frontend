@@ -254,20 +254,20 @@
 									<div id="owl-football-score" class="owl-carousel">
 										<div class="item" style="height: 155px;">
 											<div data-sportid="2" class="new-event__game">
-												<a href="<?php echo base_url() ?>coin"><img style="width:45% !important;height: 155px;margin:0 auto;" src="<?php echo base_url() ?>assets/game2/images/head-till-front.png" alt=""></a>
+												<a href="<?php echo base_url() ?>coin"><img style="height: 100%;margin:0 auto;" src="<?php echo base_url() ?>assets/game2/images/head-till-front.png" alt=""></a>
 											</div>
 										</div>
 
 										<div class="item" style="height: 155px;">
 											<div data-sportid="2" class="new-event__game">
-												<a href="<?php echo base_url() ?>ludu"><img style="width: 45% !important;height: 155px;margin:0 auto;" src="<?php echo base_url() ?>assets/game2/images/ludu.png" alt=""></a>
+												<a href="<?php echo base_url() ?>ludu"><img style="height: 100%;margin:0 auto;" src="<?php echo base_url() ?>assets/game2/images/ludu.png" alt=""></a>
 											</div>
 										</div>
 										
 										<div class="item">
 										<!-- <div class="item"> -->
 											<div data-sportid="2" class="new-event__game">
-												<a href="<?php echo base_url() ?>dice"><img style="width: 50% !important;height: 155px;margin:0 auto;" src="<?php echo base_url() ?>assets/game2/images/dice_slider.png" alt=""></a>
+												<a href="<?php echo base_url() ?>dice"><img style="height: 100%;margin:0 auto;" src="<?php echo base_url() ?>assets/game2/images/dice_slider.png" alt=""></a>
 											</div>
 										</div>
 									</div>
