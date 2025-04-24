@@ -290,7 +290,7 @@
     color: #ffffff;
     font-weight: bold;
 }
-.posiblewin span .bg{
+.posiblewin .bg{
     background: #c30707 !important;
     padding: 0px 15px !important;
 }
