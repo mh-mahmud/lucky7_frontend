@@ -70,8 +70,13 @@
       </div>
     </div>
     <div class="play-btn">
-      <img id="cplay" class="" src="<?php echo base_url('assets/game2'); ?>/images/play-btn1.png" alt="">
-      <img id="cplay1" class="hidden" src="<?php echo base_url('assets/game2'); ?>/images/play-btn1.png" alt="">
+      <div id="play-button" class="text-center mt-5">
+        <button class="play-btn">
+          <span class="btn-icon">🎮</span>
+          <span class="btn-text">Play Game</span>
+        </button>
+      </div>
+      <!-- <img id="cplay" class="" src="<?php //echo base_url('assets/game2'); ?>/images/play-btn1.png" alt=""> -->
     </div>
   </div>
 </div>
@@ -94,7 +99,7 @@
        $('#btn-head').addClass('active');
        $('#btn-till').removeClass('active');
      }
-   });
+    });
 
     $('#btn-till').click(function(event) {
       if(run==0)
@@ -108,9 +113,9 @@
      {
 
      }
-   });
+    });
 
-    $('#cplay').on('click', function(){
+    $('#play-button .play-btn').on('click', function(){
       run=0;
       var action_url = "<?php echo base_url(); ?>action_coin";
       var coin_amount=$('#coin_amount').val();
@@ -128,33 +133,56 @@
         }
         else
         {
+          const $btn = $(this);
+          $btn.find('.btn-icon').html('⚙️').addClass('gear-icon');
+          $btn.find('.btn-text').text('Wait...');
+          $btn.prop('disabled', true);
+
           $.ajax({
             method: "POST",
             url: action_url,
             data : {
-             coin_stake: "<?php echo $stake; ?>",
-             coin_amount: coin_amount,
-             head_tile_status: coin_stake
-           },
-           success : function (a){
-            var respData = JSON.parse(a);
-            $('#coin').html(respData.wstatues);
-            $('#result').html(respData.b);
-            $('#notice').html(respData.c);
-            $('#posiblewin').html(respData.posiblewin);
-            $('#error').html(respData.error);
+              coin_stake: "<?php echo $stake; ?>",
+              coin_amount: coin_amount,
+              head_tile_status: coin_stake
+            },
+            success : function (a){
+              var respData = JSON.parse(a);
+              $('#coin').html(respData.wstatues);
+              $('#result').html(respData.b);
+              $('#notice').html(respData.c);
+              $('#posiblewin').html(respData.posiblewin);
+              $('#error').html(respData.error);
 
-            // refresh up
-            $("#coin_amount").val(0);
-            $('#btn-head').removeClass('active');
-            $('#btn-till').removeClass('active');
-          }
-        }); 
+              // refresh up
+              $("#coin_amount").val('');
+              $('#btn-head').removeClass('active');
+              $('#btn-till').removeClass('active');
+            },
+            complete: function(xhr, status) {
+              var element = document.querySelector('.hideMe');
+              
+              if (element) {
+                // Add an event listener for the animationend event
+                element.addEventListener('animationend', function(){
+                  resetPlayButton($btn);
+                });
+              }else{
+                resetPlayButton($btn);
+              }
+            }
+          });
         }
       }
     });
 
-        $('#coin_amount').keyup(function(event) {
+    function resetPlayButton($btn){
+      $btn.find('.btn-icon').html('🎮').removeClass('gear-icon');
+      $btn.find('.btn-text').text('Play Game');
+      $btn.prop('disabled', false);
+    }
+
+    $('#coin_amount').keyup(function(event) {
       // var rate=2.2;
       var rate="<?php echo $stake; ?>";
       var amount=$('#coin_amount').val();
@@ -199,55 +227,14 @@
 
      }
    });
-    $('#play1').on('click', function(){
-      alert('Refresh your browser');
-      location.reload();
-    });
-    $('#playodd').on('click', function(){
-      run=0;
 
-      // $('#btn-tail').css('background', '#123');
-      // $('#btn-head').css('background', '#123');
-      var amount=$('#ludu_amount').val();
-      if(stake=="" )
-      {
-        alert('choose your point (odd-even)');
-        run=0;
-      }
-      else
-      {
-        if(amount<=0)
-        {
-          alert('Enter Stake amount');
-          run=0;
-        }
-        else
-        {
-          $.ajax({
-            method: "POST",
-            url:'ludu-oepost.php',
-            data : {
-             stake: stake,
-             amount: amount
-           },
-           success : function (a){
-            var respData = JSON.parse(a);
-            $('#coin').html(respData.wstatues);
-            $('#result').html(respData.b);
-            $('#notice').html(respData.c);
-            $('#posiblewin').html(respData.d);
-            $('#error').html(respData.error);
-          }
-        }); 
-        }
-      }
-    });
-        $('.amountBtn').click(function () {
+    $('.amountBtn').click(function () {
       $('.amountBtn').removeClass('btn-active');
       $(this).addClass('btn-active');
       var amount = $(this).text();
       $('#ludu_amount').val(amount).trigger('change')
     })
+
     $("#ludu_amount").on("change keypress input", function() {
       var rate=1.86;
       var amount=$('#ludu_amount').val();

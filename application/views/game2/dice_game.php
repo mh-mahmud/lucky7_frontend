@@ -82,7 +82,6 @@
     </div>
     <div class="play-btn">
       <img id="cplay" class="" src="<?php echo base_url('assets/game2'); ?>/images/play-btn1.png" alt="">
-      <img id="cplay1" class="hidden" src="<?php echo base_url('assets/game2'); ?>/images/play-btn1.png" alt="">
     </div>
   </div>
 </div>
@@ -210,10 +209,7 @@
 
      }
    });
-    $('#play1').on('click', function(){
-      alert('Refresh your browser');
-      location.reload();
-    });
+
     $('#playodd').on('click', function(){
       run=0;
 

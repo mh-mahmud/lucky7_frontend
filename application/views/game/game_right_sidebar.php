@@ -60,7 +60,7 @@
 													 class="image" style="width:500px; height: 150px">
 												<div class="middle">
 													<div class="text_img"><a
-															href="<?= base_url("game/" . $svals->id) ?>">Play Now</a>
+															href="<?= base_url("game/" . $svals->id) ?>">Comming Soon...</a>
 													</div>
 												</div>
 											</div>

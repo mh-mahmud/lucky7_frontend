@@ -328,3 +328,58 @@
 	margin-left: 10px;
 	float: left;
 }
+
+#play-button .play-btn {
+	background: linear-gradient(45deg, #ff416c, #ff4b2b);
+	border: none;
+	color: white;
+	font-size: 1.2rem;
+	padding: 12px 30px;
+	border-radius: 50px;
+	transition: all 0.3s ease-in-out;
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	min-width: 220px;
+	justify-content: center;
+	cursor: pointer;
+	flex-wrap: wrap;
+	margin-top: 30px;
+	margin-bottom: 300px;
+    font-size: 18px;
+  }
+
+  #play-button .play-btn:hover:enabled {
+	background: linear-gradient(45deg, #1de9b6, #1dc4e9);
+	transform: scale(1.05);
+	box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  }
+
+  #play-button .play-btn:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+  }
+
+  #play-button .btn-icon,
+  #play-button .btn-text {
+	display: inline-block;
+	min-width: 30px;
+  }
+
+  #play-button .gear-icon {
+	animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+  }
+
+  @media (max-width: 576px) {
+	#play-button .play-btn {
+	  font-size: 1.4rem;
+	  padding: 10px 24px;
+	  min-width: 180px;
+	}
+  }

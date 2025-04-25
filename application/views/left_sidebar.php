@@ -134,7 +134,7 @@
 										 class="game_image" style="width:100%; height: 150px">
 									<div class="middle_game_img">
 										<div class="text_img"><a
-												href="<?= base_url("game/" . $gval->id) ?>">Play Now</a>
+												href="<?= base_url("game/" . $gval->id) ?>">Comming Soon...</a>
 										</div>
 									</div>
 								</div>

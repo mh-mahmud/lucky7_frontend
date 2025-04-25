@@ -69,7 +69,6 @@
     </div>
     <div class="play-btn">
       <img id="play" class="" src="<?php echo base_url('assets/game2'); ?>/images/play-btn1.png" alt="">
-      <img id="play1" class="hidden" src="<?php echo base_url('assets/game2'); ?>/images/play-btn1.png" alt="">
     </div>
   </div>
 </div>
@@ -186,10 +185,7 @@
 
      }
    });
-    $('#play1').on('click', function(){
-      alert('Refresh your browser');
-      location.reload();
-    });
+
     $('#play').on('click', function(){
       run=0;
 
@@ -211,7 +207,7 @@
           run=0;
         }
         else {
- 
+
           $.ajax({
             method: "POST",
             url: action_url,
@@ -246,7 +242,7 @@
       var rate=3.20;
       var amount=$('#ludu_amount').val();
       var returna=amount*rate;
-      var returna=returna.toFixed(1); 
+      var returna=returna.toFixed(1);
       $('#pwin').html(returna);
     });
   });
