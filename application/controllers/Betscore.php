@@ -1783,8 +1783,22 @@ class Betscore extends CI_Controller
 	// -- slot game
 	public function slot_game() {
 		$data = [];
-		$data['stake'] = $this->db->query("SELECT dice_game_ratio, dice_game_rate FROM settings where id=1")->row()->dice_game_rate;
-		//dd(FCPATH);
+		$data['stake'] = $this->db->query("SELECT slot_game_ratio FROM settings where id=1")->row()->slot_game_ratio;
+		$user_balance = 50;
+		$is_logged_in = "FALSE";
+		$user_id = null;
+
+
+		if(isset($this->session->userdata['cus_data'])) {
+			$user_id = $this->session->userdata['cus_data']->id;
+			$user_balance = get_user_current_balance($user_id);
+			$is_logged_in = "TRUE";
+		}
+
+		$data['user_val_balance'] = $user_balance;
+		$data['is_logged_in'] = $is_logged_in;
+		$data['user_id'] = $user_id;
+
 		$this->load->view('game2/slotmachine/index', $data);
 		//$this->load->view(FCPATH . 'custom_view', $data);
 	}

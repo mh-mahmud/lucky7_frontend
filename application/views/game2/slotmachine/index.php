@@ -43,16 +43,24 @@
           <script>
             $(document).ready(function(){
 					 var TOTAL_BET = 0;
-					 var CUR_BALANCE = 75;
+					 var CUR_BALANCE = "<?php echo $user_val_balance; ?>";
+					 CUR_BALANCE = parseFloat(CUR_BALANCE);
+					 //alert(typeof CUR_BALANCE);
 					 var FINAL_BALANCE = 0;
 					 var WIN_AMOUNT = 0;
-					 var USER_ID = 10;
-					 var IS_LOGGED_IN = false;
+					 var USER_ID = "<?php echo $user_id; ?>";
+					 USER_ID = parseInt(USER_ID);
+					 // alert(USER_ID);
+					 var IS_LOGGED_IN = "<?php echo $is_logged_in; ?>";
+					 // alert(IS_LOGGED_IN);
 					 var RESULT = null;
 					 var RESULT_BALANCE = 0;
+					 var STAKE = "<?php echo $stake; ?>";
+					 STAKE = parseInt(STAKE);
 					 
                      var oMain = new CMain({
-						win_occurrence:70,        //WIN PERCENTAGE.SET A VALUE FROM 0 TO 100.
+						win_occurrence: STAKE,		//WIN PERCENTAGE.SET A VALUE FROM 0 TO 100.
+
 						slot_cash: CUR_BALANCE,   //THIS IS THE CURRENT SLOT CASH AMOUNT. THE GAME CHECKS IF THERE IS AVAILABLE CASH FOR WINNINGS.
 						min_reel_loop:2,          //NUMBER OF REEL LOOPS BEFORE SLOT STOPS  
 						reel_delay: 6,            //NUMBER OF FRAMES TO DELAY THE REELS THAT START AFTER THE FIRST ONE
@@ -89,7 +97,7 @@
 
                     $(oMain).on("end_session", function (evt) {
 						alert("session end");
-                        if(getParamValue('ctl-arcade') === "true"){
+                        if(getParamValue('ctl-arcade') === "true") {
                             parent.__ctlArcadeEndSession();
                         }
 						
