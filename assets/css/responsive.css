@@ -1106,9 +1106,9 @@
     app-game-content-area.mt-100 .game-content-area, .mt-100 {
         margin-top: 103px;
     }
-    app-banner-slider {
+    /* app-banner-slider {
         display: none;
-    }
+    } */
     .game-other-info-registration-area {
         margin-bottom: 0;
     }
