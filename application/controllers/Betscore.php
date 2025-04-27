@@ -1784,7 +1784,7 @@ class Betscore extends CI_Controller
 	public function slot_game() {
 		$data = [];
 		$data['stake'] = $this->db->query("SELECT slot_game_ratio FROM settings where id=1")->row()->slot_game_ratio;
-		$user_balance = 50;
+		$user_balance = 0;
 		$is_logged_in = "FALSE";
 		$user_id = null;
 
@@ -1801,6 +1801,81 @@ class Betscore extends CI_Controller
 
 		$this->load->view('game2/slotmachine/index', $data);
 		//$this->load->view(FCPATH . 'custom_view', $data);
+	}
+
+	public function action_slotmachine() {
+
+		$coin_stake = $_POST['coin_stake'];
+		$lines = $_POST['lines'];
+		$total_amount = $_POST['coin_amount'];
+		$game_status = "DRAW";
+		$settings = $this->db->query("SELECT slot_game_ratio FROM settings where id=1")->row();
+
+		// check is logged in
+		if (empty($this->session->userdata('cus_data'))) {
+			$x = array (
+			  'error' => '<div role=\'alert\' class=\'alert alert-danger\'><strong>Please login frist !!</strong></div>',
+			);
+			echo json_encode($x);
+			return;
+		}
+
+		// collect user data
+		$user_data = $this->db->query("SELECT * FROM `users` WHERE id='{$this->session->userdata['cus_data']->id}' AND password = '{$this->session->userdata['cus_data']->password}' AND status=1")->row();
+		if (empty($user_data)) {
+			$this->session->sess_destroy();
+			$x = array (
+			  'error' => '<div role=\'alert\' class=\'alert alert-danger\'><strong>Please login frist !!</strong></div>',
+			);
+			echo json_encode($x);
+			return;
+		}
+
+		$user_id = $user_data->id;
+		$username = $user_data->username;
+		$phone = $user_data->phone;
+		$country = $user_data->country;
+		$club_id = $user_data->club_id;
+
+		// check user balance
+		$user_balance = get_user_current_balance($user_id);
+		if ( $user_balance < ($total_amount) ) {
+			$x = array (
+			  'error' => '<div role=\'alert\' class=\'alert alert-danger\'><strong>Insufficient balance, please deposit frist !!</strong></div>',
+			);
+			echo json_encode($x);
+			return;
+		}
+dd($_POST);
+		// Deduct from user balance
+		$current_balance = $user_balance-$coin_amount;
+		$data_arr = array(
+			'user_id' => $user_id,
+			'club_id' => $club_id,
+			'coin' => $total_amount,
+			'current_balance' => $current_balance,
+			'coin_type' => 'PLAY_GAME',
+			'method' => 'POST',
+			'transfer_user_id' => 0,
+			'created_at' => date("Y-m-d H:i:s")
+		);
+		$this->db->insert('my_coin', $data_arr);
+
+		// Insert data to the game db
+		$data_arr = array(
+			'user_id' => $user_id,
+			'club_id' => $club_id,
+			'username' => $username,
+			'phone' => $phone,
+			'country' => $country,
+			'coin_stake' => $coin_stake,
+			'coin_amount' => $coin_amount,
+			'total_amount' => $total_amount,
+			'game_type' => 'SLOT',
+			'game_status' => $game_status,
+			'created_at' => date("Y-m-d H:i:s")
+		);
+		$this->db->insert('game_play', $data_arr);
 	}
 
 	

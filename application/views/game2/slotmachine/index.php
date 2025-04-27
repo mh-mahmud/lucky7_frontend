@@ -43,6 +43,8 @@
           <script>
             $(document).ready(function(){
 					 var TOTAL_BET = 0;
+					 var BET_STAKE = 0;
+					 var LINES = 0;
 					 var CUR_BALANCE = "<?php echo $user_val_balance; ?>";
 					 CUR_BALANCE = parseFloat(CUR_BALANCE);
 					 //alert(typeof CUR_BALANCE);
@@ -115,6 +117,8 @@
 						*/
 						//alert("bet placed");
 						TOTAL_BET = oBetInfo.tot_bet;
+						BET_STAKE = oBetInfo.bet;
+						LINES = TOTAL_BET/BET_STAKE;
 						
 						console.log(oBetInfo);
                     });
@@ -146,6 +150,29 @@
 							RESULT = "LOST";
 						}
 						CUR_BALANCE = iMoney;
+
+						// insert result to db
+						var action_url = "<?php echo base_url(); ?>action_slot";
+						$.ajax({
+							method: "POST",
+							url: action_url,
+							data : {
+								coin_stake: BET_STAKE,
+								coin_amount: TOTAL_BET,
+								user_id: USER_ID,
+								lines: LINES
+							},
+							success : function (a) {
+								var respData = JSON.parse(a);
+								console.log(respData);
+								$('#coin').html(respData.wstatues);
+								$('#result').html(respData.b);
+								$('#notice').html(respData.c);
+								$('#posiblewin').html(respData.posiblewin);
+								$('#error').html(respData.error);
+							}
+						});
+
 						console.log("Your bet amount is " + TOTAL_BET);
 						console.log("Your current balance is " + CUR_BALANCE);
 						console.log("Your game status is "+ RESULT);
