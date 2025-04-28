@@ -1803,6 +1803,79 @@ class Betscore extends CI_Controller
 		//$this->load->view(FCPATH . 'custom_view', $data);
 	}
 
+	public function action_slot_init() {
+
+		$coin_stake = $_POST['coin_stake'];
+		$lines = $_POST['lines'];
+		$total_amount = $_POST['coin_amount'];
+		$settings = $this->db->query("SELECT slot_game_ratio FROM settings where id=1")->row();
+
+		// check is logged in
+		if (empty($this->session->userdata('cus_data'))) {
+			$x = array (
+			  'error' => '<div role=\'alert\' class=\'alert alert-danger\'><strong>Please login frist !!</strong></div>',
+			);
+			echo json_encode($x);
+			return;
+		}
+
+		// collect user data
+		$user_data = $this->db->query("SELECT * FROM `users` WHERE id='{$this->session->userdata['cus_data']->id}' AND password = '{$this->session->userdata['cus_data']->password}' AND status=1")->row();
+		if (empty($user_data)) {
+			$this->session->sess_destroy();
+			$x = array (
+			  'error' => '<div role=\'alert\' class=\'alert alert-danger\'><strong>Please login frist !!</strong></div>',
+			);
+			echo json_encode($x);
+			return;
+		}
+
+		$user_id = $user_data->id;
+		$username = $user_data->username;
+		$phone = $user_data->phone;
+		$country = $user_data->country;
+		$club_id = $user_data->club_id;
+
+		// check user balance
+		$prev_balance = get_user_current_balance($user_id);
+		$current_balance = $prev_balance - $total_amount;
+
+		// deduct money from user balance
+		$data_arr = array(
+			'user_id' => $user_id,
+			'club_id' => $club_id,
+			'coin' => $total_amount,
+			'current_balance' => $current_balance,
+			'coin_type' => 'PLAY_GAME',
+			'method' => 'POST',
+			'transfer_user_id' => 0,
+			'created_at' => date("Y-m-d H:i:s")
+		);
+		$this->db->insert('my_coin', $data_arr);
+
+		// print success message
+		$x = [
+			'status' => 200,
+			'message' => 'success'
+		];
+		echo json_encode($x);
+		return;
+
+
+
+
+
+		/*if ( $user_balance < ($total_amount) ) {
+			$x = array (
+			  'error' => '<div role=\'alert\' class=\'alert alert-danger\'><strong>Insufficient balance, please deposit frist !!</strong></div>',
+			);
+			echo json_encode($x);
+			return;
+		}*/
+
+
+	}
+
 	public function action_slotmachine() {
 
 		$coin_stake = $_POST['coin_stake'];
@@ -1838,28 +1911,36 @@ class Betscore extends CI_Controller
 		$club_id = $user_data->club_id;
 
 		// check user balance
-		$user_balance = get_user_current_balance($user_id);
-		if ( $user_balance < ($total_amount) ) {
-			$x = array (
-			  'error' => '<div role=\'alert\' class=\'alert alert-danger\'><strong>Insufficient balance, please deposit frist !!</strong></div>',
+		$prev_balance = get_user_current_balance($user_id);
+		$win_amount = 0;
+		$loss_amount = 0;
+
+		if($_POST['result']=="WIN") {
+			$method = "GET";
+			$win_amount = $_POST['i_money'] - $_POST['result_balance'];
+			$current_balance = $prev_balance + $win_amount;
+			$coin = $win_amount;
+
+			// Add win or loss amount to the user balance
+			$data_arr = array(
+				'user_id' => $user_id,
+				'club_id' => $club_id,
+				'coin' => $coin,
+				'current_balance' => $current_balance,
+				'coin_type' => 'GAME_WIN',
+				'method' => $method,
+				'transfer_user_id' => 0,
+				'created_at' => date("Y-m-d H:i:s")
 			);
-			echo json_encode($x);
-			return;
+			$this->db->insert('my_coin', $data_arr);
 		}
-dd($_POST);
-		// Deduct from user balance
-		$current_balance = $user_balance-$coin_amount;
-		$data_arr = array(
-			'user_id' => $user_id,
-			'club_id' => $club_id,
-			'coin' => $total_amount,
-			'current_balance' => $current_balance,
-			'coin_type' => 'PLAY_GAME',
-			'method' => 'POST',
-			'transfer_user_id' => 0,
-			'created_at' => date("Y-m-d H:i:s")
-		);
-		$this->db->insert('my_coin', $data_arr);
+		else if($_POST['result']=="LOSS") {
+			$method = "POST";
+			$loss_amount = $_POST['coin_amount'];
+			$current_balance = $prev_balance - $_POST['coin_amount'];
+			$coin = $_POST['coin_amount'];
+		}
+
 
 		// Insert data to the game db
 		$data_arr = array(
@@ -1868,14 +1949,38 @@ dd($_POST);
 			'username' => $username,
 			'phone' => $phone,
 			'country' => $country,
-			'coin_stake' => $coin_stake,
-			'coin_amount' => $coin_amount,
-			'total_amount' => $total_amount,
-			'game_type' => 'SLOT',
-			'game_status' => $game_status,
+			'coin_stake' => $_POST['coin_stake'],
+			'bet_line' => $_POST['lines'],
+			'total_bet' => $_POST['coin_amount'],
+			'win_amount' => $win_amount,
+			'loss_amount' => $loss_amount,
+			'game_type' => 'SLOT_MACHINE',
+			'game_status' => $_POST['result'],
 			'created_at' => date("Y-m-d H:i:s")
 		);
-		$this->db->insert('game_play', $data_arr);
+		$this->db->insert('slotmachine', $data_arr);
+
+		// print success message
+		$x = [
+			'status' => 200,
+			'message' => 'success'
+		];
+		echo json_encode($x);
+		return;
+
+
+
+
+
+		/*if ( $user_balance < ($total_amount) ) {
+			$x = array (
+			  'error' => '<div role=\'alert\' class=\'alert alert-danger\'><strong>Insufficient balance, please deposit frist !!</strong></div>',
+			);
+			echo json_encode($x);
+			return;
+		}*/
+
+
 	}
 
 	

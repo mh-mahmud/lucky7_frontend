@@ -119,6 +119,23 @@
 						TOTAL_BET = oBetInfo.tot_bet;
 						BET_STAKE = oBetInfo.bet;
 						LINES = TOTAL_BET/BET_STAKE;
+
+						// insert result to db
+						var action_url = "<?php echo base_url(); ?>action_slot_init";
+						$.ajax({
+							method: "POST",
+							url: action_url,
+							data : {
+								coin_stake: BET_STAKE,
+								coin_amount: TOTAL_BET,
+								user_id: USER_ID,
+								lines: LINES
+							},
+							success : function (a) {
+								var respData = JSON.parse(a);
+								console.log(respData);
+							}
+						});
 						
 						console.log(oBetInfo);
                     });
@@ -136,7 +153,7 @@
                             parent.__ctlArcadeSaveScore({score:iMoney});
                         }
                         //...ADD YOUR CODE HERE EVENTUALLY
-						alert("score save time ");
+						// alert("score save time ");
 						console.log(iMoney);
 						
 						/**********************************************************
@@ -147,7 +164,7 @@
 							RESULT = "WIN";
 						}
 						else {
-							RESULT = "LOST";
+							RESULT = "LOSS";
 						}
 						CUR_BALANCE = iMoney;
 
@@ -168,11 +185,6 @@
 							success : function (a) {
 								var respData = JSON.parse(a);
 								console.log(respData);
-								$('#coin').html(respData.wstatues);
-								$('#result').html(respData.b);
-								$('#notice').html(respData.c);
-								$('#posiblewin').html(respData.posiblewin);
-								$('#error').html(respData.error);
 							}
 						});
 
