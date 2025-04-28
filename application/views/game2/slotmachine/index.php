@@ -160,7 +160,10 @@
 								coin_stake: BET_STAKE,
 								coin_amount: TOTAL_BET,
 								user_id: USER_ID,
-								lines: LINES
+								lines: LINES,
+								result: RESULT,
+								result_balance: RESULT_BALANCE,
+								i_money: iMoney
 							},
 							success : function (a) {
 								var respData = JSON.parse(a);
