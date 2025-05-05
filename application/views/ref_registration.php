@@ -289,7 +289,7 @@
 					<input type="text" id="full_name" placeholder="Username" name="username_f">
 					<input type="password" id="regpassword" placeholder="Give any password" name="password_f">
 					<input type="password" id="cpassword" placeholder="Confirm password" name="cpassword_f">
-					<input type="text" id="sponsorname" placeholder="Your sponsor name(Required)" required="true" name="sponsorname_f">
+					<input type="text" id="sponsorname" value="LUCKY7" placeholder="Your sponsor name(Required)" required="true" name="sponsorname_f">
 					<select name="club_id_f" id="club_id">
 						<option value="">Select A Club *</option>
 						<?php

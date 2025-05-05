@@ -202,8 +202,8 @@
 		get_all_count();
 	});
 
-	setInterval(get_all_count,20000);
-	setInterval(betscore24,3000);
+	setInterval(get_all_count,30000);
+	setInterval(betscore24,30000);
 
 	$("#emailId").hide();
 	$("#otpCode").hide();
@@ -793,7 +793,7 @@
 			"</div>");
     }
 
-    setInterval(isOnline,5000);
+    setInterval(isOnline,10000);
  
     
     

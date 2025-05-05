@@ -74,6 +74,7 @@
 									<div class="input-containerr">
 										<i class="fas fa-male iconr"></i>
 										<input class="input-fieldr" type="text" id="sponsorname"
+										value="LUCKY7"
 											   placeholder="Your sponsor name(Required)" required="true"
 											   name="sponsorname_f">
 									</div>
