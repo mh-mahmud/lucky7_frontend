@@ -24,9 +24,9 @@
 
 												<form id="depositForm" action="<?php base_url('customeruser/make_deposit') ?>" method="POST">
 
-													<div style="color: #f31717; font-weight: bold; margin-bottom: 10px; margin-top: 15px; text-align: center;">
+													<!-- <div style="color: #f31717; font-weight: bold; margin-bottom: 10px; margin-top: 15px; text-align: center;">
 														*** If you have personal number then use 'Send Money' option Or If you have payment number then use 'Payment' option.
-													</div>
+													</div> -->
 													<div class="row form-row">
 														<div class="col-lg-4">
 															<div class="form-group">
