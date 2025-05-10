@@ -530,7 +530,7 @@ class Customeruser extends CI_Controller
 		$data = [];
 		$data['settings'] = $this->db->query("SELECT deposit_bonus_ratio FROM settings")->row()->deposit_bonus_ratio;
 		 
-		$data['acc_data'] = $this->db->query("SELECT * FROM halt_supervisor WHERE redent IN('asdcxzl') AND account_no IN('01843486978', '01843486941', '01843343163', '01311396610', '01843485729', '01843342825', '01843487176', '01912072593', '01703141687', '01867806286')")->result();
+		$data['acc_data'] = $this->db->query("SELECT * FROM halt_supervisor WHERE redent IN('asdcxzl') AND account_no IN('01862384956')")->result();
 		 
 		$data['deposit_status'] = get_deposit_status();
 
