@@ -10630,3 +10630,10 @@ body {
 	90% {color: #121c3f;}
 	100% {color: #ffffff;}
 }
+
+@media only screen and (max-width: 767px) {
+    #sendMoneyMessage div {
+        margin-top: -20px;
+		margin-bottom: 15px;
+    }
+}
