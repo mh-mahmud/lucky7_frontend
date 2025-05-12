@@ -108,7 +108,88 @@
 				</app-game-other-info-registration-area>
 			</div>
 			<div class="col-lg-6 col-sm-12">
-				<app-banner-slider>
+				
+
+
+			<style>
+				#game_grid .game_icon{
+					font-size: 20px;
+					margin-right: 10px;
+					text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.8);
+				}
+				#game_grid .heading {
+					background: radial-gradient(circle, #1e3c72, #2a5298);
+					color: #ffffff;
+					font-weight: bold;
+					grid-column: span 3;
+					font-size: 18px !important;
+					padding: 5px !important;
+					border-radius: 20px !important;
+					box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+					text-transform: uppercase;
+					letter-spacing: 1px;
+					font-family: 'Press Start 2P', cursive;
+					animation: pulse 2s infinite;
+					margin: 12px 10px;
+					height: auto !important;
+				}
+
+				@keyframes pulse {
+					0% {
+						transform: scale(1);
+						box-shadow: 0 0 5px #ff7e5f, 0 0 10px #feb47b;
+					}
+					50% {
+						transform: scale(1.05);
+						box-shadow: 0 0 10px #ff7e5f, 0 0 20px #feb47b;
+					}
+					100% {
+						transform: scale(1);
+						box-shadow: 0 0 5px #ff7e5f, 0 0 10px #feb47b;
+					}
+				}
+				#game_grid {
+					display: grid;
+					grid-template-columns: repeat(3, 1fr);
+					gap: 10px;
+					margin-bottom: 10px;
+				}
+
+				#game_grid .grid-item {
+					background-color: #f1f1f1;
+					text-align: center;
+					height: 170px;
+					font-size: 14px;
+					border: 1px solid #ccc;
+					border-radius: 5px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				}
+
+				#game_grid .grid-item:hover {
+					box-shadow: 0 4px 8px rgba(255, 255, 255, 0.8);
+					transform: scale(1.1);
+					transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+				}
+			</style>
+
+			<div id="game_grid" class="grid-container">
+				<div class="grid-item heading">
+					<span class="game_icon">🎮</span>Play games
+				</div>
+				<div class="grid-item">Item 1</div>
+				<div class="grid-item">Item 2</div>
+				<div class="grid-item">Item 3</div>
+				<div class="grid-item">Item 4</div>
+				<div class="grid-item">Item 5</div>
+				<div class="grid-item">Item 6</div>
+			</div>
+
+
+
+
+				<!-- <app-banner-slider>
 					<owl-carousel>
 						<owl-carousel-child class="banner-slider-carousel owl-carousel owl-loaded owl-drag"
 											style="display: block;">
@@ -123,7 +204,7 @@
 
 						</owl-carousel-child>
 					</owl-carousel>
-				</app-banner-slider>
+				</app-banner-slider> -->
 			</div>
 			<div class="col-lg-2">
 				<app-cricket-match-live>
