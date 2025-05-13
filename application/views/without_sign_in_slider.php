@@ -157,7 +157,7 @@
 										<?php foreach ($slider_query as $sval): ?>
 											<div class="item" style="height: 155px;">
 												<div data-sportid="2" class="new-event__game">
-													<a href="javascript:void(0);"
+													<a href="javascript:void(0)"
 													   class="new-event__title"><?= $sval->league_title; ?></a>
 													<div class="new-event__wrap">
 														<marquee behavior = 'scroll' direction = 'left' onmouseout=this.start(); onmouseover=this.stop(); scrollamount='2' scrolldelay='40' truespeed='truespeed'>
@@ -303,59 +303,61 @@
 
 <div id="game_grid" class="grid-container">
 	<div class="grid-item heading">
-		<span class="game_icon">🎮</span>Play games
+		<span class="game_icon">🎮</span>Play games&nbsp;<img src="<?php echo base_url('assets/game2/images/banner'); ?>/coin.png" alt="Image">
 	</div>
 </div>
 
 <div class="container my-2" id="game_container">
-        <div class="row">
-            <div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
-                <img src="<?php echo base_url('assets/game2/images/banner'); ?>/ipl.png" alt="Image">
-            </div>
-            <div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
-                <img src="<?php echo base_url('assets/game2/images/banner'); ?>/ludodice.png" alt="Image">
-            </div>
-            <div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
-                <img src="<?php echo base_url('assets/game2/images/banner'); ?>/ludu.png" alt="Image">
-            </div>
-            <div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
-                <img src="<?php echo base_url('assets/game2/images/banner'); ?>/head_tail.png" alt="Image">
-            </div>
-            <!-- Image 4 -->
-            <div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
-                <img src="https://img.b112j.com/upload/game/EVO/sicbo@SuperSicBo000001.png?v=1746105166915" alt="Image">
-            </div>
-            <!-- Image 5 -->
-            <div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
-                <img src="https://img.b112j.com/upload/game/EVO/sicbo@SuperSicBo000001.png?v=1746105166915" alt="Image">
-            </div>
-            <!-- Image 6 -->
-            <div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
-                <img src="https://img.b112j.com/upload/game/EVO/sicbo@SuperSicBo000001.png?v=1746105166915" alt="Image">
-            </div>
-            <!-- Image 7 -->
-            <div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
-                <img src="https://img.b112j.com/upload/game/EVO/sicbo@SuperSicBo000001.png?v=1746105166915" alt="Image">
-            </div>
-            <!-- Image 8 -->
-            <div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
-                <img src="https://img.b112j.com/upload/game/EVO/sicbo@SuperSicBo000001.png?v=1746105166915" alt="Image">
-            </div>
-            <!-- Image 9 -->
-            <div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
-                <img src="https://img.b112j.com/upload/game/EVO/sicbo@SuperSicBo000001.png?v=1746105166915" alt="Image">
-            </div>
-            <!-- Image 10 -->
-            <div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
-                <img src="https://img.b112j.com/upload/game/EVO/sicbo@SuperSicBo000001.png?v=1746105166915" alt="Image">
-            </div>
-            <!-- Image 11 -->
-            <div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
-                <img src="https://img.b112j.com/upload/game/EVO/sicbo@SuperSicBo000001.png?v=1746105166915" alt="Image">
-            </div>
-            <!-- Image 12 -->
-            <div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
-                <img src="https://img.b112j.com/upload/game/EVO/sicbo@SuperSicBo000001.png?v=1746105166915" alt="Image">
-            </div>
-        </div>
-    </div>
+	<div class="row">
+		<div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container" style="position: relative;">
+			<a href="#home">
+				<img src="<?php echo base_url('assets/game2/images/banner'); ?>/ipl.png" alt="Image">
+			</a>
+			<div class="banner-overlay">IPL</div>
+		</div>
+		<div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
+			<img src="<?php echo base_url('assets/game2/images/banner'); ?>/ludodice.png" alt="Image">
+			<div class="banner-overlay">Ludo Dice</div>
+		</div>
+		<div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
+			<img src="<?php echo base_url('assets/game2/images/banner'); ?>/ludu.png" alt="Image">
+			<div class="banner-overlay">Dice Guess</div>
+		</div>
+		<div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
+			<img src="<?php echo base_url('assets/game2/images/banner'); ?>/head_tail.png" alt="Image">
+			<div class="banner-overlay">Head/Tail</div>
+		</div>
+		<div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
+			<img src="https://img.b112j.com/upload/game/EVO/sicbo@SuperSicBo000001.png?v=1746105166915" alt="Image">
+			<div class="banner-overlay"><small>Comming Soon...</small></div>
+		</div>
+		<div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
+			<img src="https://img.b112j.com/upload/game/EVO/sicbo@SuperSicBo000001.png?v=1746105166915" alt="Image">
+			<div class="banner-overlay"><small>Comming Soon...</small></div>
+		</div>
+		<div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
+			<img src="https://img.b112j.com/upload/game/EVO/sicbo@SuperSicBo000001.png?v=1746105166915" alt="Image">
+			<div class="banner-overlay"><small>Comming Soon...</small></div>
+		</div>
+		<div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
+			<img src="https://img.b112j.com/upload/game/EVO/sicbo@SuperSicBo000001.png?v=1746105166915" alt="Image">
+			<div class="banner-overlay"><small>Comming Soon...</small></div>
+		</div>
+		<div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
+			<img src="https://img.b112j.com/upload/game/EVO/sicbo@SuperSicBo000001.png?v=1746105166915" alt="Image">
+			<div class="banner-overlay"><small>Comming Soon...</small></div>
+		</div>
+		<div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
+			<img src="https://img.b112j.com/upload/game/EVO/sicbo@SuperSicBo000001.png?v=1746105166915" alt="Image">
+			<div class="banner-overlay"><small>Comming Soon...</small></div>
+		</div>
+		<div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
+			<img src="https://img.b112j.com/upload/game/EVO/sicbo@SuperSicBo000001.png?v=1746105166915" alt="Image">
+			<div class="banner-overlay"><small>Comming Soon...</small></div>
+		</div>
+		<div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
+			<img src="https://img.b112j.com/upload/game/EVO/sicbo@SuperSicBo000001.png?v=1746105166915" alt="Image">
+			<div class="banner-overlay"><small>Comming Soon...</small></div>
+		</div>
+	</div>
+</div>

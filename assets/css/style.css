@@ -10717,6 +10717,27 @@ body {
 	border-radius: 10px;
 	box-shadow: 0 0px 5px 0px rgba(255, 255, 255, 0.8);
 }
+#game_container .banner-overlay {
+	width: 82%;
+    position: absolute;
+    top: 88%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+    background-color: rgba(138, 43, 226, 0.8);
+    padding: 0px 5px;
+    border-radius: 7px;
+}
 body {
     background: #15384d !important;
+}
+.live-in-play-carousel-item {
+    background-color: #19506e !important;
+}
+.live-in-play-carousel .item{
+	border-radius: 7px;
+    border-right: 4px solid #48ab99;
 }
