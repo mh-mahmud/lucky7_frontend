@@ -7,6 +7,14 @@
         }
         
     } 
+        .image-container {
+            padding: 10px;
+        }
+        .image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
 </style>
 	<app-game-other-info-box>
 	<div class="game-other-info-box-area">
@@ -111,85 +119,12 @@
 				
 
 
-			<style>
-				#game_grid .game_icon{
-					font-size: 20px;
-					margin-right: 10px;
-					text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.8);
-				}
-				#game_grid .heading {
-					background: radial-gradient(circle, #1e3c72, #2a5298);
-					color: #ffffff;
-					font-weight: bold;
-					grid-column: span 3;
-					font-size: 18px !important;
-					padding: 5px !important;
-					border-radius: 20px !important;
-					box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-					text-transform: uppercase;
-					letter-spacing: 1px;
-					font-family: 'Press Start 2P', cursive;
-					animation: pulse 2s infinite;
-					margin: 12px 10px;
-					height: auto !important;
-				}
-
-				@keyframes pulse {
-					0% {
-						transform: scale(1);
-						box-shadow: 0 0 5px #ff7e5f, 0 0 10px #feb47b;
-					}
-					50% {
-						transform: scale(1.05);
-						box-shadow: 0 0 10px #ff7e5f, 0 0 20px #feb47b;
-					}
-					100% {
-						transform: scale(1);
-						box-shadow: 0 0 5px #ff7e5f, 0 0 10px #feb47b;
-					}
-				}
-				#game_grid {
-					display: grid;
-					grid-template-columns: repeat(3, 1fr);
-					gap: 10px;
-					margin-bottom: 10px;
-				}
-
-				#game_grid .grid-item {
-					background-color: #f1f1f1;
-					text-align: center;
-					height: 170px;
-					font-size: 14px;
-					border: 1px solid #ccc;
-					border-radius: 5px;
-					display: flex;
-					align-items: center;
-					justify-content: center;
-				}
-
-				#game_grid .grid-item:hover {
-					box-shadow: 0 4px 8px rgba(255, 255, 255, 0.8);
-					transform: scale(1.1);
-					transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-				}
-			</style>
-
-			<div id="game_grid" class="grid-container">
-				<div class="grid-item heading">
-					<span class="game_icon">🎮</span>Play games
-				</div>
-				<div class="grid-item">Item 1</div>
-				<div class="grid-item">Item 2</div>
-				<div class="grid-item">Item 3</div>
-				<div class="grid-item">Item 4</div>
-				<div class="grid-item">Item 5</div>
-				<div class="grid-item">Item 6</div>
-			</div>
+			
 
 
 
 
-				<!-- <app-banner-slider>
+				<app-banner-slider>
 					<owl-carousel>
 						<owl-carousel-child class="banner-slider-carousel owl-carousel owl-loaded owl-drag"
 											style="display: block;">
@@ -204,8 +139,10 @@
 
 						</owl-carousel-child>
 					</owl-carousel>
-				</app-banner-slider> -->
+				</app-banner-slider>
 			</div>
+			
+
 			<div class="col-lg-2">
 				<app-cricket-match-live>
 					<div class="cricket-match-carousel-area no-live-match"
@@ -329,3 +266,96 @@
 		</div>
 	</div>
 </app-game-other-info-box>
+
+<?php
+/*
+			<div class="col-lg-12">
+				<div class="row">
+					<?php for ($i = 1; $i <= 6; $i++): ?>
+						<div class="col-lg-2 col-md-4 col-sm-6">
+							<div class="grid-item">
+								<h5>Item <?= $i; ?></h5>
+								<p>Content for item <?= $i; ?></p>
+							</div>
+						</div>
+					<?php endfor; ?>
+				</div>
+			</div>
+
+			<style>
+				.grid-item {
+					background-color: #f9f9f9;
+					border: 1px solid #ddd;
+					border-radius: 5px;
+					padding: 15px;
+					text-align: center;
+					margin-bottom: 15px;
+					box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+				}
+				.grid-item:hover {
+					box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+					transform: scale(1.05);
+					transition: all 0.3s ease-in-out;
+				}
+			</style>
+			*/
+?>
+
+<div id="game_grid" class="grid-container">
+	<div class="grid-item heading">
+		<span class="game_icon">🎮</span>Play games
+	</div>
+</div>
+
+<div class="container my-2" id="game_container">
+        <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
+                <img src="<?php echo base_url('assets/game2/images/banner'); ?>/ipl.png" alt="Image">
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
+                <img src="<?php echo base_url('assets/game2/images/banner'); ?>/ludodice.png" alt="Image">
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
+                <img src="<?php echo base_url('assets/game2/images/banner'); ?>/ludu.png" alt="Image">
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
+                <img src="<?php echo base_url('assets/game2/images/banner'); ?>/head_tail.png" alt="Image">
+            </div>
+            <!-- Image 4 -->
+            <div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
+                <img src="https://img.b112j.com/upload/game/EVO/sicbo@SuperSicBo000001.png?v=1746105166915" alt="Image">
+            </div>
+            <!-- Image 5 -->
+            <div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
+                <img src="https://img.b112j.com/upload/game/EVO/sicbo@SuperSicBo000001.png?v=1746105166915" alt="Image">
+            </div>
+            <!-- Image 6 -->
+            <div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
+                <img src="https://img.b112j.com/upload/game/EVO/sicbo@SuperSicBo000001.png?v=1746105166915" alt="Image">
+            </div>
+            <!-- Image 7 -->
+            <div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
+                <img src="https://img.b112j.com/upload/game/EVO/sicbo@SuperSicBo000001.png?v=1746105166915" alt="Image">
+            </div>
+            <!-- Image 8 -->
+            <div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
+                <img src="https://img.b112j.com/upload/game/EVO/sicbo@SuperSicBo000001.png?v=1746105166915" alt="Image">
+            </div>
+            <!-- Image 9 -->
+            <div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
+                <img src="https://img.b112j.com/upload/game/EVO/sicbo@SuperSicBo000001.png?v=1746105166915" alt="Image">
+            </div>
+            <!-- Image 10 -->
+            <div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
+                <img src="https://img.b112j.com/upload/game/EVO/sicbo@SuperSicBo000001.png?v=1746105166915" alt="Image">
+            </div>
+            <!-- Image 11 -->
+            <div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
+                <img src="https://img.b112j.com/upload/game/EVO/sicbo@SuperSicBo000001.png?v=1746105166915" alt="Image">
+            </div>
+            <!-- Image 12 -->
+            <div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
+                <img src="https://img.b112j.com/upload/game/EVO/sicbo@SuperSicBo000001.png?v=1746105166915" alt="Image">
+            </div>
+        </div>
+    </div>
