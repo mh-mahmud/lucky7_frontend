@@ -93,9 +93,13 @@ $route['club_login_by_admin/:any'] = "Betscore/club_login_by_admin";
 $route['ludu'] = "Betscore/ludu_game";
 $route['coin'] = "Betscore/coin_game";
 $route['dice'] = "Betscore/dice_game";
+$route['slotmachine-game'] = "Betscore/slot_game";
+
 $route['action_coin'] = "Betscore/action_coin";
 $route['action_ludu'] = "Betscore/action_ludu";
 $route['action_dice'] = "Betscore/action_dice";
+$route['action_slot_init'] = "Betscore/action_slot_init";
+$route['action_slot'] = "Betscore/action_slotmachine";
 
 
 $route['coin-game-history'] = "customeruser/coin_game_history";
