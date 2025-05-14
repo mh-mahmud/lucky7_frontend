@@ -65,7 +65,7 @@ html {
 }
 
 body {
-	font-family: "Open Sans", sans-serif;
+	font-family: 'Press Start 2P', cursive;
 	overflow-x: hidden;
 	position: relative;
 	font-size: 15px;
@@ -10638,12 +10638,9 @@ body {
     }
 }
 @media only screen and (max-width: 1200px) {
-    app-game-other-info-box{
+    #homepage-slider{
         display: none;
     }
-	#game_grid{
-		margin-top: 55px;
-	}
 }
 
 #game_grid .game_icon{
@@ -10663,7 +10660,6 @@ body {
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 	text-transform: uppercase;
 	letter-spacing: 1px;
-	font-family: 'Press Start 2P', cursive;
 	animation: pulse 2s infinite;
 	margin: 12px 10px;
 	height: auto !important;
@@ -10720,7 +10716,7 @@ body {
 #game_container .banner-overlay {
 	width: 82%;
     position: absolute;
-    top: 88%;
+    top: 89%;
     left: 50%;
     text-align: center;
     transform: translate(-50%, -50%);
@@ -10730,14 +10726,42 @@ body {
     background-color: rgba(138, 43, 226, 0.8);
     padding: 0px 5px;
     border-radius: 7px;
+	font-size: 12px;
 }
 body {
     background: #15384d !important;
 }
 .live-in-play-carousel-item {
-    background-color: #19506e !important;
+    background-color: #14717f !important;
 }
 .live-in-play-carousel .item{
 	border-radius: 7px;
-    border-right: 4px solid #48ab99;
+    border-right: 3px solid #ffffff;
+}
+.single-match-result-header {
+    background-color: #2e3144!important;
+	border: 0px!important;
+}
+.border-of-match-div{
+	height: 5px;
+    background-color: #d7782a;
+    margin-top: 25px;
+    border-radius: 5px;
+    margin-bottom: 25px;
+}
+.match-section{
+	box-shadow: 0px 0px 5px 2px rgb(255 255 255);
+    width: 97%;
+    margin: auto;
+    margin-top: 10px;
+}
+.single-match-result-accordion-header{
+	background: #313131;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    margin-top: 15px;
+    border-top: 1px solid #ffffff;
+}
+.single-match-result {
+    background: #1b5171!important;
 }
