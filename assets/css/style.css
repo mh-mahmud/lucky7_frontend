@@ -10706,6 +10706,7 @@ body {
 #game_container .image-container{
 	height: 200px;
 	width: 100%;
+	padding: 10px;
 }
 #game_container .image-container img {
 	height: 100%;

@@ -159,154 +159,158 @@
 					</div>
 				</app-game-other-info-registration-area>
 			</div>
-			<div class="col-lg-6 col-sm-12">
-				<app-banner-slider>
-					<owl-carousel>
-						<owl-carousel-child class="banner-slider-carousel owl-carousel owl-loaded owl-drag"
-											style="display: block;">
-							<div id="owl-demo" class="owl-carousel">
-								<?php $slider_query = $this->db->query("SELECT * FROM `slider_banner` WHERE status =1 ORDER BY serial ASC")->result(); ?>
-								<?php foreach ($slider_query as $sval): ?>
-									<div class="item" style="height: 321px;"><img
-											src="<?php echo get_admin_url() ?>assets/img/slider/<?= $sval->file_name; ?>">
-									</div>
-								<?php endforeach; ?>
-							</div>
-
-						</owl-carousel-child>
-					</owl-carousel>
-				</app-banner-slider>
-			</div>
-			<div class="col-lg-2">
-				 <app-cricket-match-live>
-					<div class="cricket-match-carousel-area no-live-match"
-						 style="background-image: url('assets/img/cr.jpg')">
-
+			<div id="homepage-slider">
+				<div class="col-lg-6 col-sm-12">
+					<app-banner-slider>
 						<owl-carousel>
-							<owl-carousel-child id="c_s_s" class="banner-slider-carousel owl-carousel owl-loaded owl-drag"
+							<owl-carousel-child class="banner-slider-carousel owl-carousel owl-loaded owl-drag"
 												style="display: block;">
-								<div id="owl-cricket-score" class="owl-carousel">
-									<?php $slider_query = $this->db->query("SELECT m.*, s.name FROM matchname AS m INNER JOIN sportscategory AS s ON m.sportscategory_id=s.id WHERE m.score_show_in='Cricket' AND m.active_status = '1' AND m.status = '1' ")->result(); ?>
+								<div id="owl-demo" class="owl-carousel">
+									<?php $slider_query = $this->db->query("SELECT * FROM `slider_banner` WHERE status =1 ORDER BY serial ASC")->result(); ?>
 									<?php foreach ($slider_query as $sval): ?>
-										<div class="item" style="height: 155px;">
-											<div data-sportid="2" class="new-event__game">
-												<a href="javascript:void(0);"
-												   class="new-event__title"><?= $sval->league_title; ?></a>
-												<div class="new-event__wrap">
-													<marquee behavior = 'scroll' direction = 'left' onmouseout=this.start(); onmouseover=this.stop(); scrollamount='2' scrolldelay='40' truespeed='truespeed'>
-														<div class="new-event__beginning">
-															<span class="new-event__half">
-																<span><?php echo $sval->team1; ?>&nbsp;</span>
-																<span class="live-match-title"> VS </span>
-																<span>&nbsp;<?php echo $sval->team2; ?></span>
-																<span class="new-event__time">&nbsp;&nbsp;|&nbsp;&nbsp;<?= $sval->notification; ?></span>
-															</span>
-														</div>
-													</marquee>
-
-													<div class="new-event__teams">
-														<div class="new-event__team">
-															<div class="event-team__logo">
-																<img
-																	style="width: 40px!important;height: 40px!important;"
-																	src="<?= get_admin_url() ?>assets/img/flag/<?= $sval->icon1; ?>">
-															</div>
-															<div class="event-team__name"><?= $sval->team1; ?></div>
-															<span class="cricket_score1_id_<?= $sval->id; ?>"><?= $sval->score_1; ?></span>
-														</div>
-
- 
-
-
-														<div class="new-event__team">
-															<div class="event-team__logo">
-																<img
-																	style="width: 40px!important;height: 40px!important;"
-																	src="<?= get_admin_url() ?>assets/img/flag/<?= $sval->icon2; ?>">
-															</div>
-															<div class="event-team__name"><?= $sval->team2; ?></div>
-															<span class="cricket_score2_id_<?= $sval->id; ?>"><?= $sval->score_2; ?></span>
-														</div>
-
-
-														<div class="new-event__bg" style="opacity: 1!important;">
-															<img src="<?= base_url() ?>assets/css/bgvs.png" style="width: 40px!important;height: 40px!important;position: absolute;top: calc(50% - 2.08333em);left: calc(50% - 2.08333em);background-position: center;">
-														</div>
-													</div>
-												</div>
-											</div>
+										<div class="item" style="height: 321px;"><img
+												src="<?php echo get_admin_url() ?>assets/img/slider/<?= $sval->file_name; ?>">
 										</div>
 									<?php endforeach; ?>
 								</div>
 
 							</owl-carousel-child>
 						</owl-carousel>
- 
-					</div>
-				</app-cricket-match-live>
-				
-				<app-football-match-live>
-					<div class="football-match-carousel-area no-live-match"
-						 style="background-image: url('assets/img/fb.png')">
+					</app-banner-slider>
+				</div>
+				<div class="col-lg-2">
+					<app-cricket-match-live>
+						<div class="cricket-match-carousel-area no-live-match"
+							style="background-image: url('assets/img/cr.jpg')">
 
-						<div id="football_slider_ajx">
 							<owl-carousel>
-								<owl-carousel-child id="f_s_s" class="banner-slider-carousel owl-carousel owl-loaded owl-drag" style="display: block;">
-									<div id="owl-football-score" class="owl-carousel">
-										<div class="item" style="height: 155px;">
-											<div data-sportid="2" class="new-event__game">
-												<a href="<?php echo base_url() ?>coin"><img style="height: 155px;margin:0 auto;" src="<?php echo base_url() ?>assets/game2/images/head-tail_slider.png" alt=""></a>
-											</div>
-										</div>
+								<owl-carousel-child id="c_s_s" class="banner-slider-carousel owl-carousel owl-loaded owl-drag"
+													style="display: block;">
+									<div id="owl-cricket-score" class="owl-carousel">
+										<?php $slider_query = $this->db->query("SELECT m.*, s.name FROM matchname AS m INNER JOIN sportscategory AS s ON m.sportscategory_id=s.id WHERE m.score_show_in='Cricket' AND m.active_status = '1' AND m.status = '1' ")->result(); ?>
+										<?php foreach ($slider_query as $sval): ?>
+											<div class="item" style="height: 155px;">
+												<div data-sportid="2" class="new-event__game">
+													<a href="javascript:void(0);"
+													class="new-event__title"><?= $sval->league_title; ?></a>
+													<div class="new-event__wrap">
+														<marquee behavior = 'scroll' direction = 'left' onmouseout=this.start(); onmouseover=this.stop(); scrollamount='2' scrolldelay='40' truespeed='truespeed'>
+															<div class="new-event__beginning">
+																<span class="new-event__half">
+																	<span><?php echo $sval->team1; ?>&nbsp;</span>
+																	<span class="live-match-title"> VS </span>
+																	<span>&nbsp;<?php echo $sval->team2; ?></span>
+																	<span class="new-event__time">&nbsp;&nbsp;|&nbsp;&nbsp;<?= $sval->notification; ?></span>
+																</span>
+															</div>
+														</marquee>
 
-										<div class="item" style="height: 155px;">
-											<div data-sportid="2" class="new-event__game">
-												<a href="<?php echo base_url() ?>ludu"><img style="height: 155px;margin:0 auto;" src="<?php echo base_url() ?>assets/game2/images/ludu_slider.png" alt=""></a>
+														<div class="new-event__teams">
+															<div class="new-event__team">
+																<div class="event-team__logo">
+																	<img
+																		style="width: 40px!important;height: 40px!important;"
+																		src="<?= get_admin_url() ?>assets/img/flag/<?= $sval->icon1; ?>">
+																</div>
+																<div class="event-team__name"><?= $sval->team1; ?></div>
+																<span class="cricket_score1_id_<?= $sval->id; ?>"><?= $sval->score_1; ?></span>
+															</div>
+
+	
+
+
+															<div class="new-event__team">
+																<div class="event-team__logo">
+																	<img
+																		style="width: 40px!important;height: 40px!important;"
+																		src="<?= get_admin_url() ?>assets/img/flag/<?= $sval->icon2; ?>">
+																</div>
+																<div class="event-team__name"><?= $sval->team2; ?></div>
+																<span class="cricket_score2_id_<?= $sval->id; ?>"><?= $sval->score_2; ?></span>
+															</div>
+
+
+															<div class="new-event__bg" style="opacity: 1!important;">
+																<img src="<?= base_url() ?>assets/css/bgvs.png" style="width: 40px!important;height: 40px!important;position: absolute;top: calc(50% - 2.08333em);left: calc(50% - 2.08333em);background-position: center;">
+															</div>
+														</div>
+													</div>
+												</div>
 											</div>
-										</div>
-										
-										<div class="item">
-										<!-- <div class="item"> -->
-											<div data-sportid="2" class="new-event__game">
-												<a href="<?php echo base_url() ?>dice"><img style="height: 155px;margin:0 auto;" src="<?php echo base_url() ?>assets/game2/images/dice_slider.png" alt=""></a>
-											</div>
-										</div>
+										<?php endforeach; ?>
 									</div>
-
-									<!-- <div id="owl-football-score" class="owl-carousel">
-										<div class="item">
-											<div data-sportid="2" class="new-event__game">
-												<a href="<?php //echo base_url() ?>coin"><img style="" src="<?php //echo base_url() ?>assets/game2/images/add-3.jpg" alt=""></a>
-											</div>
-										</div>
-
-										<div class="item">
-											<div data-sportid="2" class="new-event__game">
-												<a href="<?php //echo base_url() ?>ludu"><img style="" src="<?php //echo base_url() ?>assets/game2/images/add-4.jpg" alt=""></a>
-											</div>
-										</div>
-									</div> -->
 
 								</owl-carousel-child>
 							</owl-carousel>
+	
 						</div>
+					</app-cricket-match-live>
+					
+					<app-football-match-live>
+						<div class="football-match-carousel-area no-live-match"
+							style="background-image: url('assets/img/fb.png')">
+
+							<div id="football_slider_ajx">
+								<owl-carousel>
+									<owl-carousel-child id="f_s_s" class="banner-slider-carousel owl-carousel owl-loaded owl-drag" style="display: block;">
+										<div id="owl-football-score" class="owl-carousel">
+											<div class="item" style="height: 155px;">
+												<div data-sportid="2" class="new-event__game">
+													<a href="<?php echo base_url() ?>coin"><img style="height: 155px;margin:0 auto;" src="<?php echo base_url() ?>assets/game2/images/head-tail_slider.png" alt=""></a>
+												</div>
+											</div>
+
+											<div class="item" style="height: 155px;">
+												<div data-sportid="2" class="new-event__game">
+													<a href="<?php echo base_url() ?>ludu"><img style="height: 155px;margin:0 auto;" src="<?php echo base_url() ?>assets/game2/images/ludu_slider.png" alt=""></a>
+												</div>
+											</div>
+											
+											<div class="item">
+											<!-- <div class="item"> -->
+												<div data-sportid="2" class="new-event__game">
+													<a href="<?php echo base_url() ?>dice"><img style="height: 155px;margin:0 auto;" src="<?php echo base_url() ?>assets/game2/images/dice_slider.png" alt=""></a>
+												</div>
+											</div>
+										</div>
+
+										<!-- <div id="owl-football-score" class="owl-carousel">
+											<div class="item">
+												<div data-sportid="2" class="new-event__game">
+													<a href="<?php //echo base_url() ?>coin"><img style="" src="<?php //echo base_url() ?>assets/game2/images/add-3.jpg" alt=""></a>
+												</div>
+											</div>
+
+											<div class="item">
+												<div data-sportid="2" class="new-event__game">
+													<a href="<?php //echo base_url() ?>ludu"><img style="" src="<?php //echo base_url() ?>assets/game2/images/add-4.jpg" alt=""></a>
+												</div>
+											</div>
+										</div> -->
+
+									</owl-carousel-child>
+								</owl-carousel>
+							</div>
 
 
-					</div>
-				</app-football-match-live>
-
-				<!-- <app-football-match-live>
-					<div class="football-match-carousel-area no-live-match"
-						 style="background-image: url('assets/img/fb.png')">
-
-						<div id="football_slider_ajx" style="text-align:center;">
-							<a href="<?php //echo base_url() ?>coin"><img width="50%" src="<?php //echo base_url() ?>assets/game2/images/head-till.png" alt=""></a>
 						</div>
-					</div>
-				</app-football-match-live> -->
+					</app-football-match-live>
+
+					<!-- <app-football-match-live>
+						<div class="football-match-carousel-area no-live-match"
+							style="background-image: url('assets/img/fb.png')">
+
+							<div id="football_slider_ajx" style="text-align:center;">
+								<a href="<?php //echo base_url() ?>coin"><img width="50%" src="<?php //echo base_url() ?>assets/game2/images/head-till.png" alt=""></a>
+							</div>
+						</div>
+					</app-football-match-live> -->
 
 
+				</div>
 			</div>
 		</div>
 	</div>
 </app-game-other-info-box>
+
+<?php require_once('game-grids.php'); ?>

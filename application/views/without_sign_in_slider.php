@@ -6,15 +6,7 @@
             display:none;
         }
         
-    } 
-        .image-container {
-            padding: 10px;
-        }
-        .image-container img {
-            width: 100%;
-            height: auto;
-            border-radius: 5px;
-        }
+    }
 </style>
 	<app-game-other-info-box>
 		<div class="game-other-info-box-area">
@@ -267,76 +259,4 @@
 		</div>
 	</app-game-other-info-box>
 
-<?php
-/*
-			<div class="col-lg-12">
-				<div class="row">
-					<?php for ($i = 1; $i <= 6; $i++): ?>
-						<div class="col-lg-2 col-md-4 col-sm-6">
-							<div class="grid-item">
-								<h5>Item <?= $i; ?></h5>
-								<p>Content for item <?= $i; ?></p>
-							</div>
-						</div>
-					<?php endfor; ?>
-				</div>
-			</div>
-
-			<style>
-				.grid-item {
-					background-color: #f9f9f9;
-					border: 1px solid #ddd;
-					border-radius: 5px;
-					padding: 15px;
-					text-align: center;
-					margin-bottom: 15px;
-					box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-				}
-				.grid-item:hover {
-					box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-					transform: scale(1.05);
-					transition: all 0.3s ease-in-out;
-				}
-			</style>
-			*/
-?>
-
-<div id="game_grid" class="grid-container">
-	<div class="grid-item heading">
-		<span class="game_icon">🎮</span>Play games&nbsp;<img src="<?php echo base_url('assets/game2/images/banner'); ?>/coin.png" alt="Image">
-	</div>
-</div>
-
-<div class="container my-2" id="game_container">
-	<div class="row">
-		<div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container" style="position: relative;">
-			<a href="#home">
-				<img src="<?php echo base_url('assets/game2/images/banner'); ?>/ipl.png" alt="Image">
-			</a>
-			<div class="banner-overlay">IPL</div>
-		</div>
-
-		<div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
-			<a href="<?php echo base_url() ?>dice"><img src="<?php echo base_url('assets/game2/images/banner'); ?>/ludodice.png" alt="Image"></a>
-			<div class="banner-overlay">Ludo Dice</div>
-		</div>
-
-		<div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
-			<a href="<?php echo base_url() ?>ludu"><img src="<?php echo base_url('assets/game2/images/banner'); ?>/ludu.png" alt="Image"></a>
-			<div class="banner-overlay">Dice Guess</div>
-		</div>
-
-		<div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
-			<a href="<?php echo base_url() ?>coin"><img src="<?php echo base_url('assets/game2/images/banner'); ?>/head_tail.png" alt="Image"></a>
-			<div class="banner-overlay">Head/Tail</div>
-		</div>
-
-		<?php for ($i = 1; $i <= 5; $i++): ?>
-			<div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
-				<img src="https://img.b112j.com/upload/game/EVO/sicbo@SuperSicBo000001.png?v=1746105166915" alt="Image">
-				<div class="banner-overlay">Comming Soon</div>
-			</div>
-		<?php endfor; ?>
-		
-	</div>
-</div>
+<?php require_once('game-grids.php'); ?>
