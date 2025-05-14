@@ -65,7 +65,7 @@ html {
 }
 
 body {
-	font-family: 'Press Start 2P', cursive;
+	font-family: 'Press Start 2P', Arial, Helvetica, sans-serif;
 	overflow-x: hidden;
 	position: relative;
 	font-size: 15px;
