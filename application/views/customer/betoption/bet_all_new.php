@@ -110,7 +110,7 @@
 
 				?>
 
-				<div class="collapse show ng-star-inserted"
+				<div class="collapse show ng-star-inserted match-section"
 					 id="single-match-result-accordion-<?php echo $i; ?>">
 					<div class="ng-star-inserted">
 						<div class="single-match-result">
@@ -219,6 +219,7 @@
 						</div>
 					</div>
 				</div>
+				<div class="border-of-match-div"></div>
 			<?php } ?>
 			<?php $i++; endforeach; ?>
 	</div>

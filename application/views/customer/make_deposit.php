@@ -23,10 +23,6 @@
 											<?php if ($deposit_status == "Yes"): ?>
 
 												<form id="depositForm" action="<?php base_url('customeruser/make_deposit') ?>" method="POST">
-
-													<div style="color: #f31717; font-weight: bold; margin-bottom: 10px; margin-top: 15px; text-align: center;">
-														*** If you have personal number then use 'Send Money' option Or If you have payment number then use 'Payment' option.
-													</div>
 													<div class="row form-row">
 														<div class="col-lg-4">
 															<div class="form-group">
@@ -229,10 +225,10 @@
 		
 		switch (selectedDataType) {
 			case 'Personal Sim':
-				$('#sendMoneyMessage p').html('এই নম্বরে সেন্ড মানি করুন');
+				$('#sendMoneyMessage p').html('Make "Send Money" to this number');
 				break;
 			case 'Payment Sim':
-				$('#sendMoneyMessage p').html('এই নম্বরে পেমেন্ট করুন');
+				$('#sendMoneyMessage p').html('Make "Payment" to this number');
 				break;
 			default:
 				$('#sendMoneyMessage p').html('');
