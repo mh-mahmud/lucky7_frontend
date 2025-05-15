@@ -1983,10 +1983,6 @@ class Betscore extends CI_Controller
 
 	}
 	
-	public function ramsesSlotmachineFrame() {
-		$this->load->view('game2/ramsesGameframe/index', []);
-	}
-	
 	public function ramsesSlotMachine() {
 		$this->load->view('game2/ramsesSlotmachine/index', []);
 	}

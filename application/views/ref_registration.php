@@ -256,7 +256,7 @@
 		    text-decoration: none;
 		}
 	</style>
-	<link href="<?php echo base_url(); ?>assets/react_css_js/sweetalert.css?ver=<?php echo md5(rand(111,999))?>" rel="stylesheet">
+	<link href="<?php echo base_url(); ?>assets/react_css_js/sweetalert.css?ver=<?php echo $this->config->item('assets_version'); ?>" rel="stylesheet">
 </head>
 	<body>
 		<h2>::lucky7:: <?php echo $d; ?></h2>
@@ -342,9 +342,9 @@
 		</footer>
 	</body>
 </html>
-<script src="<?php echo base_url(); ?>assets/js/jquery.min.js?ver=<?php echo md5(rand(111,999))?>"></script>
-<script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js?ver=<?php echo md5(rand(111,999))?>"></script>
-<script src="<?php echo base_url(); ?>assets/js/sweetalert-dev.js?ver=<?php echo md5(rand(111,999))?>"></script>
+<script src="<?php echo base_url(); ?>assets/js/jquery.min.js?ver=<?php echo $this->config->item('assets_version'); ?>"></script>
+<script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js?ver=<?php echo $this->config->item('assets_version'); ?>"></script>
+<script src="<?php echo base_url(); ?>assets/js/sweetalert-dev.js?ver=<?php echo $this->config->item('assets_version'); ?>"></script>
 <script type="text/javascript">
 	const signUpButton = document.getElementById('signUp');
 	const signInButton = document.getElementById('signIn');
