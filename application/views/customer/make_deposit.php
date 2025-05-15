@@ -225,10 +225,10 @@
 		
 		switch (selectedDataType) {
 			case 'Personal Sim':
-				$('#sendMoneyMessage p').html('এই নম্বরে সেন্ড মানি করুন');
+				$('#sendMoneyMessage p').html('Make "Send Money" to this number');
 				break;
 			case 'Payment Sim':
-				$('#sendMoneyMessage p').html('এই নম্বরে পেমেন্ট করুন');
+				$('#sendMoneyMessage p').html('Make "Payment" to this number');
 				break;
 			default:
 				$('#sendMoneyMessage p').html('');
