@@ -17,17 +17,17 @@
 	<link rel="shortcut icon" type="ico" href="<?php echo base_url("assets/img/")?>logo-new.png"/>
 	
 	<!-- Local Link -->
-	<link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css?ver=<?php echo md5(rand(111,999))?>" rel="stylesheet">
+	<link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css?ver=<?php echo $this->config->item('assets_version'); ?>" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
-	<link href="<?php echo base_url(); ?>assets/css/animate.css?ver=<?php echo md5(rand(111,999))?>" rel="stylesheet">
-	<link href="<?php echo base_url(); ?>assets/css/style.css?ver=<?php echo md5(rand(111,999))?>" rel="stylesheet">
-	<link href="<?php echo base_url(); ?>assets/css/style-green.css?ver=<?php echo md5(rand(111,999))?>" rel="stylesheet">
-	<link href="<?php echo base_url(); ?>assets/css/responsive.css?ver=<?php echo md5(rand(111,999))?>" rel="stylesheet">
-	<link href="<?php echo base_url(); ?>assets/react_css_js/materialize.css?ver=<?php echo md5(rand(111,999))?>" rel="stylesheet">
-	<link href="<?php echo base_url(); ?>assets/react_css_js/sweetalert.css?ver=<?php echo md5(rand(111,999))?>" rel="stylesheet">
-	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/owl.css?ver=<?php echo md5(rand(111,999))?>">
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/multibet/style.css?ver=<?php echo md5(rand(111,999))?>">
+	<link href="<?php echo base_url(); ?>assets/css/animate.css?ver=<?php echo $this->config->item('assets_version'); ?>" rel="stylesheet">
+	<link href="<?php echo base_url(); ?>assets/css/style.css?ver=<?php echo $this->config->item('assets_version'); ?>" rel="stylesheet">
+	<link href="<?php echo base_url(); ?>assets/css/style-green.css?ver=<?php echo $this->config->item('assets_version'); ?>" rel="stylesheet">
+	<link href="<?php echo base_url(); ?>assets/css/responsive.css?ver=<?php echo $this->config->item('assets_version'); ?>" rel="stylesheet">
+	<link href="<?php echo base_url(); ?>assets/react_css_js/materialize.css?ver=<?php echo $this->config->item('assets_version'); ?>" rel="stylesheet">
+	<link href="<?php echo base_url(); ?>assets/react_css_js/sweetalert.css?ver=<?php echo $this->config->item('assets_version'); ?>" rel="stylesheet">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/owl.css?ver=<?php echo $this->config->item('assets_version'); ?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/multibet/style.css?ver=<?php echo $this->config->item('assets_version'); ?>">
 	<!--<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/chat/style.css">-->
 	<!-- End -->
 
