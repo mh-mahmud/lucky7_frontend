@@ -332,6 +332,12 @@ switch (ENVIRONMENT)
 	
 	//die($_SERVER['SERVER_NAME']);
 
+	function dd($data) {
+		echo "<pre>";
+		print_r($data);
+		exit();
+	}
+
  
 /*
  * --------------------------------------------------------------------

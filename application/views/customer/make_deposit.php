@@ -23,10 +23,6 @@
 											<?php if ($deposit_status == "Yes"): ?>
 
 												<form id="depositForm" action="<?php base_url('customeruser/make_deposit') ?>" method="POST">
-
-													<!-- <div style="color: #f31717; font-weight: bold; margin-bottom: 10px; margin-top: 15px; text-align: center;">
-														*** If you have personal number then use 'Send Money' option Or If you have payment number then use 'Payment' option.
-													</div> -->
 													<div class="row form-row">
 														<div class="col-lg-4">
 															<div class="form-group">
@@ -41,12 +37,11 @@
 																			class="fas fa-credit-card"></i></span>
 
 																	<select class="form-control" id="option_method"
-																			onchange="return get_payment_number();"
+																			onchange="get_payment_number(); showMoneySendMethod();"
 																			required>
 																		<option value=""> Select option</option>
 																		<?php foreach ($acc_data as $aval) : ?>
-																			<option
-																				value="<?php echo $aval->account_no; ?>|<?php echo $aval->account_name; ?>"><?php echo $aval->account_name; ?></option>
+																			<option value="<?php echo $aval->account_no; ?>|<?php echo $aval->account_name; ?>" data-acctype="<?= $aval->type ?>"><?php echo $aval->account_name; ?></option>
 																		<?php endforeach; ?>
 																	</select>
 
@@ -76,12 +71,16 @@
 																		   name="payment_method" id="payment_method"
 																		   readonly="true"
 																		   placeholder="Select Payment Method">
-
+																	
 																</div>
 															</div>
 														</div>
 													</div>
-
+													<div class="row form-row" id="sendMoneyMessage" style="display: none;">
+														<div class="col-lg-8 offset-4">
+															<p style="color: #ff4444;"></p>
+														</div>
+													</div>
 													<div class="row form-row">
 														<div class="col-lg-4">
 															<div class="form-group">
@@ -213,12 +212,28 @@
 
 		$("#admin_account").val(strArray[0]);
 		$("#payment_method").val(strArray[1]);
-		console.log(strArray[0]);
 	}
 	
 	$("#depositForm").on("submit", function() {
 	    $(".admin-profile-update-form-submit").hide();
 	    $(this).submit();
 	});
+
+	function showMoneySendMethod() {
+		var selectedDataType = $('#option_method option:selected').data("acctype");
+		$('#sendMoneyMessage').show();
+		
+		switch (selectedDataType) {
+			case 'Personal Sim':
+				$('#sendMoneyMessage p').html('এই নম্বরে সেন্ড মানি করুন');
+				break;
+			case 'Payment Sim':
+				$('#sendMoneyMessage p').html('এই নম্বরে পেমেন্ট করুন');
+				break;
+			default:
+				$('#sendMoneyMessage p').html('');
+				break;
+		}
+	}
 
 </script>

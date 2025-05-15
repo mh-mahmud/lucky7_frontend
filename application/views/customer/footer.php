@@ -194,8 +194,30 @@
  
  
 
-
 <script type="text/javascript">
+
+	function isLoggedin(event) {
+		<?php if (empty($this->session->userdata['cus_data'])) : ?>
+			// Prevent default action of the anchor tag
+			event.preventDefault();
+			// User is not logged in
+			swal({
+				title: "Please login to continue",
+				type: "error",
+				timer: 2000,
+				showConfirmButton: true
+			});
+		<?php endif; ?>
+	}
+
+	function showMessage(type, title) {
+		swal({
+			title: title,
+			type: type,
+			timer: 2000,
+			showConfirmButton: true
+		});
+	}
 
 	$(document).ready(function() {
 		betscore24();
