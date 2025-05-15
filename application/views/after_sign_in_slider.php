@@ -159,8 +159,8 @@
 					</div>
 				</app-game-other-info-registration-area>
 			</div>
-			<div id="homepage-slider">
-				<div class="col-lg-6 col-sm-12">
+			<!-- <div id="homepage-slider"> -->
+				<div class="col-lg-6 col-sm-12 dis-none-mobile">
 					<app-banner-slider>
 						<owl-carousel>
 							<owl-carousel-child class="banner-slider-carousel owl-carousel owl-loaded owl-drag"
@@ -178,7 +178,7 @@
 						</owl-carousel>
 					</app-banner-slider>
 				</div>
-				<div class="col-lg-2">
+				<div class="col-lg-2 dis-none-mobile">
 					<app-cricket-match-live>
 						<div class="cricket-match-carousel-area no-live-match"
 							style="background-image: url('assets/img/cr.jpg')">
@@ -308,7 +308,7 @@
 
 
 				</div>
-			</div>
+			<!-- </div> -->
 		</div>
 	</div>
 </app-game-other-info-box>

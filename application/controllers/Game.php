@@ -18,4 +18,19 @@ class Game extends CI_Controller
 
 	}
 
+	public function isLoggedin()
+	{
+		if (empty($this->session->userdata('cus_data'))) {
+			// User is not logged in
+			echo json_encode([
+				'isLoggedin' => 0
+			]);
+			return;
+		}
+		// User is logged in
+		echo json_encode([
+			'isLoggedin' => 1
+		]);
+	}
+
 }

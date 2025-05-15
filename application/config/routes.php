@@ -105,3 +105,5 @@ $route['action_slot'] = "Betscore/action_slotmachine";
 $route['coin-game-history'] = "customeruser/coin_game_history";
 $route['ludu-game-history'] = "customeruser/ludu_game_history";
 $route['dice-game-history'] = "customeruser/dice_game_history";
+
+$route['isLoggedin'] = "Game/isLoggedin";
