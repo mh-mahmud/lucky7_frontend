@@ -107,3 +107,6 @@ $route['ludu-game-history'] = "customeruser/ludu_game_history";
 $route['dice-game-history'] = "customeruser/dice_game_history";
 
 $route['isLoggedin'] = "Game/isLoggedin";
+
+$route['ramses-game-frame'] = "Betscore/ramsesSlotmachineFrame";
+$route['ramses-slot-machine'] = "Betscore/ramsesSlotmachine";
