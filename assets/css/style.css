@@ -10638,8 +10638,8 @@ body {
     }
 }
 @media only screen and (max-width: 1200px) {
-    #homepage-slider{
-        display: none;
+    .dis-none-mobile{
+        display: none!important;
     }
 }
 
