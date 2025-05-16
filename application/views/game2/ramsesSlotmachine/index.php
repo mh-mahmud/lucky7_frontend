@@ -26,17 +26,29 @@
 	<div style="position: fixed; background-color: transparent; top: 0px; left: 0px; width: 100%; height: 100%"></div>
           <script>
             $(document).ready(function(){
+
+
+
+                const BAL     = parseFloat("<?= $bal; ?>");
+                const U_ID    = parseInt("<?= $u_id; ?>");
+                const RAT     = parseInt("<?= $rat; ?>");
+                var LINES     = 0;
+                var COIN      = 0;
+                var TOTAL_BET = 0;
+                var BET_STAKE = 0;
+                var ___i      = false;
+
                 var oMain = new CMain({
-                    win_occurrence:30,        //WIN PERCENTAGE.SET A VALUE FROM 0 TO 100.
-                    slot_cash: 100,          //THIS IS THE CURRENT SLOT CASH AMOUNT. THE GAME CHECKS IF THERE IS AVAILABLE CASH FOR WINNINGS.
-                    bonus_occurrence:10,      //SET BONUS OCCURRENCE PERCENTAGE IF PLAYER GET A WIN. SET A VALUE FROM 0 TO 100. (IF 100%, PLAYER GET A BONUS EVERYTIME THERE IS A WIN).
+                    win_occurrence:RAT,        //WIN PERCENTAGE.SET A VALUE FROM 0 TO 100.
+                    slot_cash: BAL,          //THIS IS THE CURRENT SLOT CASH AMOUNT. THE GAME CHECKS IF THERE IS AVAILABLE CASH FOR WINNINGS.
+                    bonus_occurrence:RAT,      //SET BONUS OCCURRENCE PERCENTAGE IF PLAYER GET A WIN. SET A VALUE FROM 0 TO 100. (IF 100%, PLAYER GET A BONUS EVERYTIME THERE IS A WIN).
                     min_reel_loop:1,          //NUMBER OF REEL LOOPS BEFORE SLOT STOPS  
                     reel_delay: 5,            //NUMBER OF FRAMES TO DELAY THE REELS THAT START AFTER THE FIRST ONE
                     time_show_win:2000,       //DURATION IN MILLISECONDS OF THE WINNING COMBO SHOWING
                     time_show_all_wins: 2000, //DURATION IN MILLISECONDS OF ALL WINNING COMBO
-                    money:10,               //STARING CREDIT FOR THE USER
-                    min_bet:0.05,             //MINIMUM COIN FOR BET
-                    max_bet: 0.5,             //MAXIMUM COIN FOR BET
+                    money:BAL,               //STARING CREDIT FOR THE USER
+                    min_bet: 5,             //MINIMUM COIN FOR BET
+                    max_bet: 50,             //MAXIMUM COIN FOR BET
                     max_hold:3,               //MAXIMUM NUMBER OF POSSIBLE HOLD ON REELS
                     bonus_prize_for_3_symbol: [5,50,100],     //LIST OF MULTIPLIER IF 3 BONUS ITEM
                     bonus_prize_for_4_symbol: [10,100,200],   //LIST OF MULTIPLIER IF 4 BONUS ITEM
@@ -46,7 +58,7 @@
                     perc_win_prize_3: 15,       //OCCURENCE PERCENTAGE FOR PRIZE 3 IN BONUS
                     /***********PAYTABLE********************/
                     //EACH SYMBOL PAYTABLE HAS 5 VALUES THAT INDICATES THE MULTIPLIER FOR X1,X2,X3,X4 OR X5 COMBOS
-                    paytable_symbol_1: [0,0,150,250,500], //PAYTABLE FOR SYMBOL 1
+                    paytable_symbol_1: [0,0,150,200,300], //PAYTABLE FOR SYMBOL 1
                     paytable_symbol_2: [0,0,100,150,200], //PAYTABLE FOR SYMBOL 2
                     paytable_symbol_3: [0,0,50,100,150],  //PAYTABLE FOR SYMBOL 3
                     paytable_symbol_4: [0,10,25,50,100],  //PAYTABLE FOR SYMBOL 4
@@ -79,17 +91,36 @@
                 });
                 
                 $(oMain).on("bet_placed", function (evt, oBetInfo) {
-                    var iBet = oBetInfo.bet;
+                    var iBet    = oBetInfo.bet;
                     var iTotBet = oBetInfo.tot_bet;
+                    TOTAL_BET   = iTotBet;
+                    BET_STAKE   = iBet;
+                    LINES       = iTotBet / iBet;
                     //...ADD YOUR CODE HERE EVENTUALLY
+
+                    var url = "<?php echo base_url(); ?>ramses-slot-init";
+						$.ajax({
+							method: "POST",
+							url: url,
+							data : {
+								coin    : iBet,
+								tot_bet : iTotBet
+							},
+							success : function (a) {
+								let res = JSON.parse(a);
+                                ___i = res.data.___i;
+							}
+						});
                 });
                 
                 $(oMain).on("bonus_start", function (evt) {
                     //...ADD YOUR CODE HERE EVENTUALLY
+                    console.log("bonus_start");
                 });
 
                 $(oMain).on("bonus_end", function (evt, iMoney) {
                     //...ADD YOUR CODE HERE EVENTUALLY
+                    console.log("bonus_end", iMoney);
                 });
                     
                 $(oMain).on("save_score", function (evt, iMoney) {
@@ -97,6 +128,23 @@
                         parent.__ctlArcadeSaveScore({score:iMoney});
                     }
                     //...ADD YOUR CODE HERE EVENTUALLY
+                    var action_url = "<?php echo base_url(); ?>actionn-ramses-slot";
+                    $.ajax({
+                        method: "POST",
+                        url: action_url,
+                        data : {
+                            coin_stake: BET_STAKE,// Coin stake per line
+                            total_bet: TOTAL_BET,
+                            lines: LINES,
+                            i_money: iMoney,
+                            ___i : ___i
+                        },
+                        success : function (a) {
+                            var res = JSON.parse(a);
+                            console.log(res);
+                        }
+                    });
+                    ___i = false;
                 });
 
                 $(oMain).on("show_interlevel_ad", function (evt) {

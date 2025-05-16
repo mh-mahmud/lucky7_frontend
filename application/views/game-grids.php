@@ -20,6 +20,11 @@
 		</div>
 
 		<div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
+			<a onclick="isLoggedin(event);" href="<?php echo base_url() ?>ramses-slot-machine"><img src="<?php echo base_url('assets/game2/images/banner'); ?>/ramses_slot.png" alt="Image"></a>
+			<div class="banner-overlay">Ramses Slot</div>
+		</div>
+
+		<div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
 			<a onclick="isLoggedin(event);" href="<?php echo base_url() ?>dice"><img src="<?php echo base_url('assets/game2/images/banner'); ?>/ludodice.png" alt="Image"></a>
 			<div class="banner-overlay">Ludo Dice</div>
 		</div>

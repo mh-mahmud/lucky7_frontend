@@ -4,6 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Betscore extends CI_Controller
 {
 
+	const SECRET_KEY = 'dfs-32-were-secret-werwer-345435435';
+
 	public function __construct()
 	{
 		parent::__construct();
@@ -1984,6 +1986,229 @@ class Betscore extends CI_Controller
 	}
 	
 	public function ramsesSlotMachine() {
-		$this->load->view('game2/ramsesSlotmachine/index', []);
+
+		// Check is logged in
+		if (empty($this->session->userdata('cus_data'))) {
+			$this->session->sess_destroy();
+			redirect('/');
+		}
+
+		$data = [];
+		$data['bal']  = 0;
+		$data['u_id'] = null;
+
+		// check is logged in
+		if(isset($this->session->userdata['cus_data'])) {
+			$data['u_id'] = $this->session->userdata['cus_data']->id;
+			$data['bal']  = get_user_current_balance($data['u_id']);
+		}
+		$data['rat'] = $this->db->query("SELECT slot_game_ratio FROM settings where id=1")->row()->slot_game_ratio;
+
+		$this->load->view('game2/ramsesSlotmachine/index', $data);
 	}
+	
+	/* Bet place */
+	public function actionRamsesSlotinit() {
+
+		if(isset($_POST['tot_bet']) && is_numeric($_POST['tot_bet'])){
+
+			$tot_bet = floatval($_POST['tot_bet']);
+			
+			// check if user is logged in
+			if (empty($this->session->userdata('cus_data'))) {
+				echo json_encode([
+					'status'  => 400,
+					'message' => 'Please login to play'
+				]);
+				return;
+			}
+
+			// User Data
+			$user_data = $this->db->query("SELECT * FROM `users` WHERE id='{$this->session->userdata['cus_data']->id}' AND password = '{$this->session->userdata['cus_data']->password}' AND status=1")->row();
+			if (empty($user_data)) {
+				$this->session->sess_destroy();
+				echo json_encode([
+					'status'  => 400,
+					'message' => 'User not found'
+				]);
+				return;
+			}
+
+			// check user balance
+			$prev_balance = get_user_current_balance($user_data->id);
+			$current_balance = $prev_balance - $tot_bet;
+
+			// deduct money from user balance
+			$data_arr = array(
+				'user_id' 		   => $user_data->id,
+				'club_id' 		   => $user_data->club_id,
+				'coin' 			   => $tot_bet, // Total coin
+				'current_balance'  => $current_balance,
+				'coin_type' 	   => 'PLAY_GAME',
+				'method' 		   => 'POST',
+				'transfer_user_id' => 0,
+				'created_at'	   => date("Y-m-d H:i:s")
+			);
+			$this->db->insert('my_coin', $data_arr);
+			$inserted_id = $this->db->insert_id();
+
+			echo json_encode([
+				'status' => 200,
+				'message' => 'success',
+				'data' => [
+					'___i' => $this->encryptUserId($inserted_id, self::SECRET_KEY)
+				]
+			]);
+			return;
+		}
+		echo json_encode([
+			'status' => 400,
+			'message' => 'Invalid request'
+		]);
+		return;
+	}
+
+	public function actionRamsesSlot(){
+
+		if (
+			!isset($_POST['coin_stake']) ||
+			!isset($_POST['total_bet']) ||
+			!isset($_POST['lines']) ||
+			!isset($_POST['i_money']) ||
+			!isset($_POST['___i'])
+		) {
+			echo json_encode([
+				'status'  => 400,
+				'message' => 'Missing required parameters'
+			]);
+			return;
+		}
+
+		$coin_stake   = floatval($_POST['coin_stake']);// Coin stake per line
+		$total_bet    = floatval($_POST['total_bet']);// Invest
+		$i_money      = floatval($_POST['i_money']);
+		$lines        = intval($_POST['lines']);
+		$play_game_id = $_POST['___i'];
+
+		echo json_encode([$this->decryptUserId($play_game_id, self::SECRET_KEY)]);
+		exit;
+
+		// check is logged in
+		if (empty($this->session->userdata('cus_data'))) {
+			echo json_encode([
+				'status'  => 400,
+				'message' => 'Please login first'
+			]);
+			return;
+		}
+
+		// collect user data
+		$user_data = $this->db->query("SELECT * FROM `users` WHERE id='{$this->session->userdata['cus_data']->id}' AND password = '{$this->session->userdata['cus_data']->password}' AND status=1")->row();
+		if (empty($user_data)) {
+			$this->session->sess_destroy();
+			echo json_encode([
+				'status'  => 400,
+				'message' => 'User not found'
+			]);
+			return;
+		}
+
+		// check user balance
+		$current_balance = get_user_current_balance($user_data->id);
+		$win_amount = 0;
+		$result = $i_money > $current_balance ? "Win" : "Loss";
+
+		if($result == "Win") {// Win
+
+
+
+
+
+			// $play_game_id
+			// If $play_game_id exist
+			  //if $play_game_id is the last row of auth user, coin_type = PLAY_GAME in my_coin table
+			  //if $play_game_id created at is within 5 minutes
+			  //the process to win
+
+
+
+
+
+			$win_amount = $i_money - $current_balance;;
+
+			// Add win or loss amount to the user balance
+			$data_arr = array(
+				'user_id' 			=> $user_data->id,
+				'club_id' 			=> $user_data->club_id,
+				'coin'    			=> $win_amount,
+				'current_balance' 	=> $current_balance + $win_amount,
+				'coin_type' 		=> 'GAME_WIN',
+				'method' 			=> "GET",
+				'transfer_user_id' 	=> 0,
+				'created_at' 		=> date("Y-m-d H:i:s")
+			);
+			$this->db->insert('my_coin', $data_arr);
+
+		}
+
+		// Insert data to the game db
+		$data_arr = array(
+			'user_id' 		=> $user_data->id,
+			'club_id' 		=> $user_data->club_id,
+			'username' 		=> $user_data->username,
+			'phone' 		=> $user_data->phone,
+			'country' 		=> $user_data->country,
+			'coin_stake' 	=> $coin_stake, // Coin stake per line
+			'bet_line' 		=> $lines,
+			'total_bet' 	=> $total_bet,
+			'win_amount' 	=> $win_amount,
+			'loss_amount' 	=> $total_bet,
+			'game_type' 	=> 'SLOT_MACHINE',
+			'game_status' 	=> $result,
+			'created_at' 	=> date("Y-m-d H:i:s")
+		);
+		$this->db->insert('slotmachine', $data_arr);
+
+		// print success message
+		$x = [
+			'status' => 200,
+			'message' => 'success'
+		];
+		echo json_encode($x);
+		return;
+
+
+
+	}
+
+	function encryptUserId($userId, $key) {
+		$cipher = "AES-256-CBC";
+		$ivlen = openssl_cipher_iv_length($cipher);
+		$iv = openssl_random_pseudo_bytes($ivlen);
+		$ciphertext = openssl_encrypt($userId, $cipher, $key, OPENSSL_RAW_DATA, $iv);
+
+		// Generate HMAC for integrity
+		$hmac = hash_hmac('sha256', $ciphertext . $iv, $key, true);
+
+		// Encode all as base64 for safe storage/transmission
+		return base64_encode($hmac . $iv . $ciphertext);
+	}
+
+	function decryptUserId($encrypted, $key) {
+		$cipher = "AES-256-CBC";
+		$decoded = base64_decode($encrypted);
+
+		$hmac = substr($decoded, 0, 32);
+		$iv = substr($decoded, 32, openssl_cipher_iv_length($cipher));
+		$ciphertext = substr($decoded, 32 + openssl_cipher_iv_length($cipher));
+
+		// Verify HMAC
+		$calculated_hmac = hash_hmac('sha256', $ciphertext . $iv, $key, true);
+		if (!hash_equals($hmac, $calculated_hmac)) {
+			return false; // tampered
+		}
+
+		return openssl_decrypt($ciphertext, $cipher, $key, OPENSSL_RAW_DATA, $iv);
+	}
+
 }
