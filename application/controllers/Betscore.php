@@ -2056,7 +2056,7 @@ class Betscore extends CI_Controller
 				'status' => 200,
 				'message' => 'success',
 				'data' => [
-					'___i' => $this->encryptUserId($inserted_id, self::SECRET_KEY)
+					'en___' => $this->encryptUserId($inserted_id, self::SECRET_KEY)
 				]
 			]);
 			return;
@@ -2070,11 +2070,19 @@ class Betscore extends CI_Controller
 
 	public function actionRamsesSlot(){
 
+		// check is logged in
+		if (empty($this->session->userdata('cus_data'))) {
+			echo json_encode([
+				'status'  => 400,
+				'message' => 'Please login first'
+			]);
+			return;
+		}
+
 		if (
 			!isset($_POST['coin_stake']) ||
 			!isset($_POST['total_bet']) ||
 			!isset($_POST['lines']) ||
-			!isset($_POST['i_money']) ||
 			!isset($_POST['___i'])
 		) {
 			echo json_encode([
@@ -2086,99 +2094,90 @@ class Betscore extends CI_Controller
 
 		$coin_stake   = floatval($_POST['coin_stake']);// Coin stake per line
 		$total_bet    = floatval($_POST['total_bet']);// Invest
-		$i_money      = floatval($_POST['i_money']);
 		$lines        = intval($_POST['lines']);
-		$play_game_id = $_POST['___i'];
+		$decoded_data = json_decode(base64_decode($_POST['___i']));
 
-		echo json_encode([$this->decryptUserId($play_game_id, self::SECRET_KEY)]);
-		exit;
+		if(isset($decoded_data->___i) && isset($decoded_data->iMoney)){
+			
+			$play_game_id = intval($this->decryptUserId($decoded_data->___i, self::SECRET_KEY));
+			$i_money = floatval($decoded_data->iMoney);
 
-		// check is logged in
-		if (empty($this->session->userdata('cus_data'))) {
-			echo json_encode([
-				'status'  => 400,
-				'message' => 'Please login first'
-			]);
-			return;
-		}
+			// Check if $play_game_id exists as my_coin_id in slotmachine table
+			$slot_exists = $this->db->select('id')->where('my_coin_id', $play_game_id)->get('slotmachine')->num_rows() > 0;
+			if ($slot_exists) {
+				echo json_encode([
+					'status'  => 400,
+					'message' => 'Invalid play session'
+				]);
+				return;
+			}
+			
+			// collect user data
+			$user_data = $this->db->query("SELECT * FROM `users` WHERE id='{$this->session->userdata['cus_data']->id}' AND password = '{$this->session->userdata['cus_data']->password}' AND status=1")->row();
+			if (empty($user_data)) {
+				$this->session->sess_destroy();
+				echo json_encode([
+					'status'  => 400,
+					'message' => 'User not found'
+				]);
+				return;
+			}
 
-		// collect user data
-		$user_data = $this->db->query("SELECT * FROM `users` WHERE id='{$this->session->userdata['cus_data']->id}' AND password = '{$this->session->userdata['cus_data']->password}' AND status=1")->row();
-		if (empty($user_data)) {
-			$this->session->sess_destroy();
-			echo json_encode([
-				'status'  => 400,
-				'message' => 'User not found'
-			]);
-			return;
-		}
+			// check user balance
+			$current_balance = get_user_current_balance($user_data->id);
+			$win_amount = 0;
+			$result = $i_money > $current_balance ? "Win" : "Loss";
 
-		// check user balance
-		$current_balance = get_user_current_balance($user_data->id);
-		$win_amount = 0;
-		$result = $i_money > $current_balance ? "Win" : "Loss";
+			if($result == "Win") {// Win
 
-		if($result == "Win") {// Win
+				$win_amount = $i_money - $current_balance;
+				// Add win or loss amount to the user balance
+				$data_arr = array(
+					'user_id' 			=> $user_data->id,
+					'club_id' 			=> $user_data->club_id,
+					'coin'    			=> $win_amount,
+					'current_balance' 	=> $current_balance + $win_amount,
+					'coin_type' 		=> 'GAME_WIN',
+					'method' 			=> "GET",
+					'transfer_user_id' 	=> 0,
+					'created_at' 		=> date("Y-m-d H:i:s")
+				);
+				$this->db->insert('my_coin', $data_arr);
 
+			}
 
-
-
-
-			// $play_game_id
-			// If $play_game_id exist
-			  //if $play_game_id is the last row of auth user, coin_type = PLAY_GAME in my_coin table
-			  //if $play_game_id created at is within 5 minutes
-			  //the process to win
-
-
-
-
-
-			$win_amount = $i_money - $current_balance;;
-
-			// Add win or loss amount to the user balance
+			// Insert data to the game db
 			$data_arr = array(
-				'user_id' 			=> $user_data->id,
-				'club_id' 			=> $user_data->club_id,
-				'coin'    			=> $win_amount,
-				'current_balance' 	=> $current_balance + $win_amount,
-				'coin_type' 		=> 'GAME_WIN',
-				'method' 			=> "GET",
-				'transfer_user_id' 	=> 0,
-				'created_at' 		=> date("Y-m-d H:i:s")
+				'my_coin_id'	=> $play_game_id,
+				'user_id' 		=> $user_data->id,
+				'club_id' 		=> $user_data->club_id,
+				'username' 		=> $user_data->username,
+				'phone' 		=> $user_data->phone,
+				'country' 		=> $user_data->country,
+				'coin_stake' 	=> $coin_stake, // Coin stake per line
+				'bet_line' 		=> $lines,
+				'total_bet' 	=> $total_bet,
+				'win_amount' 	=> $win_amount,
+				'loss_amount' 	=> $total_bet,
+				'game_type' 	=> 'SLOT_MACHINE',
+				'game_status' 	=> $result,
+				'created_at' 	=> date("Y-m-d H:i:s")
 			);
-			$this->db->insert('my_coin', $data_arr);
+			$this->db->insert('slotmachine', $data_arr);
 
+			// print success message
+			echo json_encode([
+				'status'  => 200,
+				'message' => 'success'
+			]);
+			return;
 		}
 
-		// Insert data to the game db
-		$data_arr = array(
-			'user_id' 		=> $user_data->id,
-			'club_id' 		=> $user_data->club_id,
-			'username' 		=> $user_data->username,
-			'phone' 		=> $user_data->phone,
-			'country' 		=> $user_data->country,
-			'coin_stake' 	=> $coin_stake, // Coin stake per line
-			'bet_line' 		=> $lines,
-			'total_bet' 	=> $total_bet,
-			'win_amount' 	=> $win_amount,
-			'loss_amount' 	=> $total_bet,
-			'game_type' 	=> 'SLOT_MACHINE',
-			'game_status' 	=> $result,
-			'created_at' 	=> date("Y-m-d H:i:s")
-		);
-		$this->db->insert('slotmachine', $data_arr);
-
-		// print success message
-		$x = [
-			'status' => 200,
-			'message' => 'success'
-		];
-		echo json_encode($x);
+		echo json_encode([
+			'status'  => 400,
+			'message' => 'Something went wrong'
+		]);
 		return;
-
-
-
 	}
 
 	function encryptUserId($userId, $key) {

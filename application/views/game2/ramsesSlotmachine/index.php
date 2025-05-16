@@ -26,9 +26,7 @@
 	<div style="position: fixed; background-color: transparent; top: 0px; left: 0px; width: 100%; height: 100%"></div>
           <script>
             $(document).ready(function(){
-
-
-
+                
                 const BAL     = parseFloat("<?= $bal; ?>");
                 const U_ID    = parseInt("<?= $u_id; ?>");
                 const RAT     = parseInt("<?= $rat; ?>");
@@ -41,7 +39,7 @@
                 var oMain = new CMain({
                     win_occurrence:RAT,        //WIN PERCENTAGE.SET A VALUE FROM 0 TO 100.
                     slot_cash: BAL,          //THIS IS THE CURRENT SLOT CASH AMOUNT. THE GAME CHECKS IF THERE IS AVAILABLE CASH FOR WINNINGS.
-                    bonus_occurrence:RAT,      //SET BONUS OCCURRENCE PERCENTAGE IF PLAYER GET A WIN. SET A VALUE FROM 0 TO 100. (IF 100%, PLAYER GET A BONUS EVERYTIME THERE IS A WIN).
+                    bonus_occurrence:0,      //SET BONUS OCCURRENCE PERCENTAGE IF PLAYER GET A WIN. SET A VALUE FROM 0 TO 100. (IF 100%, PLAYER GET A BONUS EVERYTIME THERE IS A WIN).
                     min_reel_loop:1,          //NUMBER OF REEL LOOPS BEFORE SLOT STOPS  
                     reel_delay: 5,            //NUMBER OF FRAMES TO DELAY THE REELS THAT START AFTER THE FIRST ONE
                     time_show_win:2000,       //DURATION IN MILLISECONDS OF THE WINNING COMBO SHOWING
@@ -87,7 +85,7 @@
                     if(getParamValue('ctl-arcade') === "true"){
                         parent.__ctlArcadeEndSession();
                     }
-                    
+                    window.location.href = "<?php echo base_url(); ?>";
                 });
                 
                 $(oMain).on("bet_placed", function (evt, oBetInfo) {
@@ -108,7 +106,7 @@
 							},
 							success : function (a) {
 								let res = JSON.parse(a);
-                                ___i = res.data.___i;
+                                ___i = res.data.en___;
 							}
 						});
                 });
@@ -128,7 +126,7 @@
                         parent.__ctlArcadeSaveScore({score:iMoney});
                     }
                     //...ADD YOUR CODE HERE EVENTUALLY
-                    var action_url = "<?php echo base_url(); ?>actionn-ramses-slot";
+                    var action_url = "<?php echo base_url(); ?>action-ramses-slot";
                     $.ajax({
                         method: "POST",
                         url: action_url,
@@ -136,8 +134,7 @@
                             coin_stake: BET_STAKE,// Coin stake per line
                             total_bet: TOTAL_BET,
                             lines: LINES,
-                            i_money: iMoney,
-                            ___i : ___i
+                            ___i : btoa(JSON.stringify({___i,iMoney}))
                         },
                         success : function (a) {
                             var res = JSON.parse(a);

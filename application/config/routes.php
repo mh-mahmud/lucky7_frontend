@@ -110,4 +110,4 @@ $route['isLoggedin'] = "Game/isLoggedin";
 
 $route['ramses-slot-machine'] = "Betscore/ramsesSlotmachine";
 $route['ramses-slot-init']    = "Betscore/actionRamsesSlotinit";
-$route['actionn-ramses-slot'] = "Betscore/actionRamsesSlot";
+$route['action-ramses-slot'] = "Betscore/actionRamsesSlot";
