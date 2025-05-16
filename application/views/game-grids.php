@@ -39,7 +39,7 @@
 			<div class="banner-overlay">Head/Tail</div>
 		</div>
 
-		<?php for ($i = 1; $i <= 4; $i++): ?>
+		<?php for ($i = 1; $i <= 3; $i++): ?>
 			<div class="col-lg-2 col-md-2 col-sm-3 col-4 image-container">
 				<img style="opacity: 0.55;" src="<?php echo base_url('assets/game2/images/banner'); ?>/comming_soon.png" alt="Image">
 				<div class="banner-overlay">Comming Soon</div>
