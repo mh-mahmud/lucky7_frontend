@@ -1,7 +1,7 @@
 <app-game-other-info-box>
 	<div class="game-other-info-box-area">
 		<div class="row">
-			<div class="col-lg-4">
+			<div class="col-lg-4 dis-none-mobile">
 				<app-game-other-info-registration-area>
 					<div class="game-other-info-registration-area"
 						 style="background-image: url('assets/img/roulette.gif');">
